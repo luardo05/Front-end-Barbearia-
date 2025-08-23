@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../assets/css/agendamento.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Agendamento</title>
+</head>
+<body>
+    <div class="container">
+    <h3>Agendamento</h3>
+    <p>Escolha a data</p>
+
+    <div class="calendar">
+      <div class="calendar-header">
+        <button onclick="prevMonth()">◀</button>
+        <h4 id="monthYear"></h4>
+        <button onclick="nextMonth()">▶</button>
+      </div>
+      <div class="calendar-days" id="calendarDays"></div>
+    </div>
+
+    <h4>Horários Disponíveis</h4>
+    <div class="horarios">
+      <p>Manhã</p>
+      <button>08:00</button>
+      <button>09:00</button>
+      <button>10:00</button>
+      <button>11:00</button>
+      <p>Tarde</p>
+      <button>14:00</button>
+      <button>16:00</button>
+      <button>17:00</button>
+      <button>16:40</button>
+      <p>Noite</p>
+      <button>19:00</button>
+      <button>19:30</button>
+    </div>
+
+    <button class="btn-agendar">Agendar</button>
+  </div>
+
+  
+<div class="menu">
+    <a href="notificacoes.html">
+      <i class="fa-solid fa-bell"></i>
+    </a>
+    <a href="home.html">
+      <i class="fa-solid fa-scissors"></i>
+    </a>
+    <a href="perfil.html">
+      <i class="fa-solid fa-user"></i>
+    </a>
+  </div>
+
+  <script src="js/calendario.js"></script>
+</body>
+</html>
