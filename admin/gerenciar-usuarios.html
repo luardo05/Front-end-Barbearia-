@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Usuários - Painel do Admin</title>
+</head>
+<body>
+    <h1>Gerenciar Usuários</h1>
+    <a href="index.html">Voltar para o Dashboard</a>
+    <hr>
+
+    <h2>Lista de Usuários</h2>
+    <div id="users-table-container">Carregando usuários...</div>
+    
+    <!-- CONTROLES DE PAGINAÇÃO -->
+    <div id="pagination-controls" style="margin-top: 20px;">
+        <button id="prev-page-btn" disabled>Anterior</button>
+        <span id="page-info"></span>
+        <button id="next-page-btn" disabled>Próximo</button>
+    </div>
+
+    <h2>Adicionar Novo Usuário Manualmente</h2>
+    <form id="add-user-form">
+        <input type="text" id="nome" placeholder="Nome Completo" required><br><br>
+        <input type="email" id="email" placeholder="E-mail" required><br><br>
+        <input type="password" id="senha" placeholder="Senha" required><br><br>
+        <label for="dataNascimento">Data de Nascimento:</label><br>
+        <input type="date" id="dataNascimento" required><br><br>
+        <select id="role" required>
+            <option value="cliente">Cliente</option>
+            <option value="admin">Administrador</option>
+        </select><br><br>
+        <button type="submit">Adicionar Usuário</button>
+    </form>
+    <div id="form-message"></div>
+
+    <script type="module" src="js/gerenciarUsuarios.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

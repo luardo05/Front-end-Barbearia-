@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Meu Perfil - Barbearia</title>
+</head>
+
+<body>
+    <h1>Meu Perfil</h1>
+    <a href="index.html">Ver Serviços</a> |
+    <a href="agendamento.html">Novo Agendamento</a> |
+    <hr>
+
+    <div id="profile-info">Carregando perfil...</div>
+    <hr>
+
+    <h2>Atualizar Foto de Perfil</h2>
+    <form id="upload-photo-form">
+        <input type="file" id="photo-input" name="foto" accept="image/*" required>
+        <button type="submit">Enviar Foto</button>
+    </form>
+    <div id="upload-message"></div>
+
+    <h2>Meus Agendamentos</h2>
+    <div id="appointments-list">Carregando agendamentos...</div>
+    <hr>
+
+    <script type="module" src="js/perfil.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

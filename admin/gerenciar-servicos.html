@@ -1,0 +1,39 @@
+<!-- File: frontend/admin/gerenciar-servicos.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Serviços - Painel do Admin</title>
+</head>
+<body>
+    <!-- TÍTULO PRINCIPAL E NAVEGAÇÃO (PADRONIZADO) -->
+    <h1>Gerenciar Serviços</h1>
+    <a href="index.html">Voltar para o Dashboard</a> | 
+    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a> | 
+    <a href="gerenciar-agendamentos.html">Gerenciar Agendamentos</a> |
+    <hr>
+    
+    <!-- CONTEÚDO DA PÁGINA (JÁ EXISTENTE) -->
+    <h2>Lista de Serviços</h2>
+    <div id="services-list">Carregando serviços...</div>
+    <hr>
+
+    <h2 id="form-title">Adicionar Novo Serviço</h2>
+    <form id="service-form">
+        <input type="hidden" id="service-id"> <!-- Para edição -->
+        <input type="text" id="nome" placeholder="Nome do Serviço" required><br><br>
+        <textarea id="descricao" placeholder="Descrição" required></textarea><br><br>
+        <input type="number" id="precoBase" placeholder="Preço Base (ex: 50.00)" step="0.01" required><br><br>
+        <input type="number" id="duracao" placeholder="Duração em Minutos" required><br><br>
+        <label for="imagem">Imagem do Serviço:</label><br>
+        <input type="file" id="imagem" name="imagem" accept="image/*"><br><br>
+        <button type="submit">Salvar Serviço</button>
+        <button type="button" id="cancel-edit-btn" style="display:none;">Cancelar Edição</button>
+    </form>
+
+    <!-- A tag de script já está correta -->
+    <script type="module" src="js/gerenciarServicos.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

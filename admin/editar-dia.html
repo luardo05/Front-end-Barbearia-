@@ -1,0 +1,37 @@
+<!-- File: frontend/admin/editar-dia.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Horários do Dia - Painel do Admin</title>
+    <style>
+        /* Estilos básicos para a lista de horários */
+        .slot-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            gap: 10px; /* Espaçamento entre os elementos */
+        }
+    </style>
+</head>
+<body>
+    <h1>Editar Disponibilidade do Dia</h1>
+    <h2 id="page-title">Carregando...</h2>
+    <a href="gerenciar-disponibilidade.html">Voltar para o Calendário</a>
+    <hr>
+
+    <h3>Intervalos de Trabalho</h3>
+    <p>Defina os períodos em que você estará disponível para agendamentos neste dia.</p>
+    
+    <div id="slots-container">
+        <!-- Os intervalos de horário serão inseridos aqui pelo JavaScript -->
+    </div>
+    
+    <button id="add-slot-btn" style="margin-top: 15px;">+ Adicionar Novo Intervalo</button>
+    <hr>
+
+    <button id="save-day-btn" style="background-color: #28a745; color: white; padding: 10px 20px; border: none;">Salvar Alterações</button>
+
+    <script type="module" src="js/editarDia.js"></script>
+</body>
+</html>

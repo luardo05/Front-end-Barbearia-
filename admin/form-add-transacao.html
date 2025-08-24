@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adicionar Transação - Painel do Admin</title>
+</head>
+<body>
+    <h1>Adicionar Transação Manual (Presencial)</h1>
+    <a href="index.html">Voltar para o Dashboard</a>
+    <hr>
+    <form id="transaction-form">
+        <input type="number" id="valor" placeholder="Valor (ex: 50.00)" step="0.01" required><br><br>
+        <input type="text" id="descricao" placeholder="Descrição (ex: Corte Masculino)" required><br><br>
+        <button type="submit">Registrar Transação</button>
+    </form>
+    <div id="message"></div>
+
+    <script type="module" src="js/addTransacao.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

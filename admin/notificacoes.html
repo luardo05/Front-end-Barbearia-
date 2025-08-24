@@ -1,0 +1,49 @@
+<!-- File: frontend/client/notificacoes.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Minhas Notificações - Barbearia</title>
+    <style>
+        .notification-item {
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .notification-item.unread {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            border-left: 5px solid #007bff;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Centro de Notificações</h1>
+    <a href="index.html">Ver Serviços</a> |
+    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a> |
+    <a href="gerenciar-agendamentos.html">Gerenciar Agendamentos</a> |
+    <a href="gerenciar-servicos.html">Gerenciar Serviços</a> |
+    <a href="gerenciar-disponibilidade.html">Gerenciar Disponibilidade</a> |
+    <hr>
+
+    <div id="notifications-container">
+        <p>Carregando notificações...</p>
+    </div>
+
+    <!-- CONTROLES DE PAGINAÇÃO -->
+    <div id="pagination-controls" style="margin-top: 20px;">
+        <button id="prev-page-btn" disabled>Anterior</button>
+        <span id="page-info"></span>
+        <button id="next-page-btn" disabled>Próximo</button>
+    </div>
+
+    <script type="module" src="js/notificacoes.js"></script>
+    <!-- Script global para receber notificações em tempo real -->
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

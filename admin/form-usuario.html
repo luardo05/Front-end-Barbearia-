@@ -1,0 +1,35 @@
+<!-- File: frontend/admin/form-usuario.html -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário - Painel do Admin</title>
+</head>
+<body>
+    <h1 id="form-title">Editar Usuário</h1>
+    <a href="gerenciar-usuarios.html">Voltar para a lista</a>
+    <hr>
+
+    <form id="edit-user-form">
+        <input type="text" id="nome" placeholder="Nome Completo"><br><br>
+        <input type="email" id="email" placeholder="E-mail"><br><br>
+        
+        <label for="role">Papel (Role):</label><br>
+        <select id="role">
+            <option value="cliente">Cliente</option>
+            <option value="admin">Administrador</option>
+        </select><br><br>
+
+        <hr>
+        <p><em>Deixe o campo de senha em branco para não alterá-la.</em></p>
+        <input type="password" id="senha" placeholder="Nova Senha (opcional)"><br><br>
+        
+        <button type="submit">Salvar Alterações</button>
+    </form>
+    <div id="message"></div>
+
+    <script type="module" src="js/formUsuario.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

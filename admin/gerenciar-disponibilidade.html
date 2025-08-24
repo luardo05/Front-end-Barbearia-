@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciar Disponibilidade - Painel do Admin</title>
+    <style> /* Estilos básicos para o calendário e o modal */
+        #calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
+        .day { border: 1px solid #ccc; padding: 10px; min-height: 80px; }
+        .day.disponivel { background-color: #d4edda; }
+        .day.indisponivel { background-color: #f8d7da; text-decoration: line-through; }
+        .modal { display: none; position: fixed;  } /* Estilos de modal */
+    </style>
+</head>
+<body>
+    <h1>Gerenciar Disponibilidade</h1>
+    <a href="index.html">Voltar para o Dashboard</a>
+    <hr>
+    <div id="nav-months">
+        <button id="prev-month-btn">&lt; Mês Anterior</button>
+        <h2 id="current-month-year"></h2>
+        <button id="next-month-btn">Próximo Mês &gt;</button>
+    </div>
+    <div id="calendar"></div>
+
+    <!-- Modal para editar horários de um dia -->
+    <div id="slots-modal" class="modal">
+        <h3>Editar Horários para <span id="modal-date"></span></h3>
+        <div id="slots-container"></div>
+        <button id="add-slot-btn">Adicionar Intervalo</button>
+        <button id="save-slots-btn">Salvar Horários</button>
+        <button id="close-modal-btn">Fechar</button>
+    </div>
+    
+    <script type="module" src="js/gerenciarDisponibilidade.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Teste Barbearia</title>
+</head>
+<body>
+    <h1>Registrar Novo Usuário</h1>
+    <form id="registerForm">
+        <input type="text" id="nome" placeholder="Nome Completo" required><br><br>
+        <input type="email" id="email" placeholder="E-mail" required><br><br>
+        <input type="password" id="senha" placeholder="Senha" required><br><br>
+        <label for="dataNascimento">Data de Nascimento:</label><br>
+        <input type="date" id="dataNascimento" required><br><br>
+
+        <!-- Campo para teste de criação de admin -->
+        <label for="isAdmin">
+            <input type="checkbox" id="isAdmin"> Criar como Administrador (Apenas para teste)
+        </label><br><br>
+
+        <button type="submit">Registrar</button>
+    </form>
+    <div id="message"></div>
+    <a href="login.html">Já tem uma conta? Faça login</a>
+
+    <script type="module" src="assets/js/auth/register.js"></script>
+</body>
+</html>

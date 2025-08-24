@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Painel do Admin - Barbearia</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <h1>Painel do Administrador</h1>
+    <a href="gerenciar-usuarios.html">Gerenciar Usuários</a> |
+    <a href="gerenciar-agendamentos.html">Gerenciar Agendamentos</a> |
+    <a href="gerenciar-servicos.html">Gerenciar Serviços</a> |
+    <a href="gerenciar-disponibilidade.html">Gerenciar Disponibilidade</a> |
+    <a href="notificacoes.html">Notificações</a> |
+    <hr>
+
+    <h2>Análise de Desempenho</h2>
+    <div>
+        <label for="start-date">De:</label>
+        <input type="date" id="start-date">
+        <label for="end-date">Até:</label>
+        <input type="date" id="end-date">
+        <button id="filter-btn">Filtrar</button>
+        <button id="reset-filter-btn">Limpar Filtro</button>
+    </div>
+    <hr>
+
+    <h3>Resumo do Período</h3>
+    <div id="dashboard-summary">Carregando resumo...</div>
+    <hr>
+    <!-- SEÇÃO DE GRÁFICOS (SUBSTITUI AS TABELAS) -->
+    <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 300px;">
+            <h3>Faturamento por Dia (R$)</h3>
+            <canvas id="revenueChart"></canvas>
+        </div>
+        <div style="flex: 1; min-width: 300px;">
+            <h3>Novos Agendamentos por Dia</h3>
+            <canvas id="appointmentsChart"></canvas>
+        </div>
+    </div>
+
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>
