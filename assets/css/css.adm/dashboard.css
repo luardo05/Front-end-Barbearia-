@@ -1,0 +1,131 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #fff;
+}
+
+.container {
+  padding: 10px ;
+  text-align: center;
+}
+
+.back-arrow {
+    font-size: 24px;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    margin: 15px;
+
+}
+
+.header {
+    margin-bottom: 2rem;
+}
+
+
+.metricas {
+    display: flex;
+    gap: 10px;
+}
+
+.item {
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    color: #444;
+    background-color: #ffffff;
+    padding: 8px 12px;
+    border-radius: 15px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
+}
+
+.content {
+    width: 100%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin: 0 0 20px 0;
+}
+
+.chart-container {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.content-mes {
+    width: 100%;
+    text-align: left;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.select-container {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#mes-select {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #555;
+    background-color: #f9f9f9;
+    appearance: none;
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    cursor: pointer;
+}
+
+.renda {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+}
+
+.total-renda {
+    font-size: 20px;
+    font-weight: 700;
+    color: #ffc107;
+    margin-top: 10px;
+}
+
+.btn {
+  display: inline-block;       
+  padding: 12px 24px;          
+  background-color: #76f74e;   
+  color: #fff;                 
+  text-decoration: none;      
+  border-radius: 8px;          
+  font-size: 16px;
+  width: 15rem ;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer;            
+}
+
+.btn:hover {
+  background-color: #b0f5ca;   
+}
