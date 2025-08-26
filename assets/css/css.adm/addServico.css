@@ -80,19 +80,47 @@ body {
 }
 
 .btn {
-  display: inline-block;       
-  padding: 12px 24px;          
+  display: flex;
+  margin-top: 15rem;    
+  padding: 12px;
+  margin: 10rem;        
   background-color: #76f74e;   
   color: #fff;                 
   text-decoration: none;      
   border-radius: 8px;          
   font-size: 16px;
-  width: 15rem ;
+  width: 9rem ;
   font-weight: bold;
-  text-align: center;
+  justify-content: center;
   cursor: pointer;            
 }
 
 .btn:hover {
   background-color: #b0f5ca;   
+}
+.menu {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f5b700;
+  border-top: 1px solid #ddd;
+}
+
+.menu a {
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  flex: 1;
+}
+
+.menu i {
+  font-size: 25px;
+  display: block;
+  margin-bottom: 5px;
+  transition: transform 0.2s;
 }

@@ -64,3 +64,29 @@ footer {
 .primary-button:hover {
     background-color: #e0a800;
 }
+.menu {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f5b700;
+  border-top: 1px solid #ddd;
+}
+
+.menu a {
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  flex: 1;
+}
+
+.menu i {
+  font-size: 25px;
+  display: block;
+  margin-bottom: 5px;
+  transition: transform 0.2s;
+}

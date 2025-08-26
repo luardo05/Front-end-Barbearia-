@@ -1,11 +1,12 @@
 body {
   font-family: Arial, sans-serif;
   margin: 0;
+  padding: 20px;
   background: #fff;
 }
 
 .container {
-  padding: 10px ;
+  padding: 30px 0px;
   text-align: center;
 }
 
@@ -34,7 +35,7 @@ body {
     text-align: center;
     color: #444;
     background-color: #ffffff;
-    padding: 8px 12px;
+    padding: 8px;
     border-radius: 15px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
 }
@@ -57,7 +58,7 @@ h2 {
     border-radius: 15px;
     padding: 10px;
     box-sizing: border-box;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -99,10 +100,11 @@ h3 {
 }
 
 .renda {
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    padding: 16px;
+    background-color: #d6d5d557;
+    border-radius: 18px;
+    padding: 10px;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 .total-renda {
@@ -123,9 +125,36 @@ h3 {
   width: 15rem ;
   font-weight: bold;
   text-align: center;
-  cursor: pointer;            
+  cursor: pointer; 
+  margin-bottom: 20px;        
 }
 
 .btn:hover {
   background-color: #b0f5ca;   
+}
+.menu {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #f5b700;
+  border-top: 1px solid #ddd;
+}
+
+.menu a {
+  color: #333;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  flex: 1;
+}
+
+.menu i {
+  font-size: 25px;
+  display: block;
+  margin-bottom: 5px;
+  transition: transform 0.2s;
 }

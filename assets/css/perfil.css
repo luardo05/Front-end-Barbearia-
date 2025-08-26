@@ -4,69 +4,96 @@ body {
   background: #fff;
 }
 
-h3{
-  font-size: 3rem;
-  font-weight: 500;
-  color: #404040;
-  margin: 10px 0;
+.container {
+  padding: 60px 0px;
+  text-align: center;
+  max-width: 800px;
 }
 
-.container {
-  padding: 10px ;
-  text-align: center;
-  margin-top: 10rem
+.back-arrow {
+    font-size: 24px;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    margin: 20px;
+    margin-top: -2rem;
 }
 
 .foto-perfil {
-  width: 20rem;
-  height: 20rem;
+  width: 15rem;
+  height: 15rem;
   border-radius: 50%;
   margin: 0 auto;
 }
 
-.form-group {
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #555;
+    display: flex;
+    margin: 10px
+}
+
+.input-group {
   display: flex;
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
-}
 
-input {
-  margin: 10px;
-  padding: 50px;
-  width: 85%;
-  font-size: 1.2rem;
-  border: 1px solid #0c0c0c;
-  border-radius: 2.5rem;
+}
+input{
+  width: 95%;
+    padding: 10px;
+    border: 1px solid #e6e6e6a2;
+    border-radius: 15px;
+    box-sizing: border-box;
+    font-size: 16px;
+    display: flex;
+    border: 1px solid #dbdbdb96;
+    background-color: #f7f7f7;
+    margin: 10px;
 }
 
 input::placeholder {
-  font-size: 2rem; 
-  color: #888;    
-  font-weight: bold; 
+  color: #888;     
 }
 
+
+footer {
+    margin-top: 20px;
+}
 
 .btn-editar {
-  background: #f5b700;
-  padding: 40px;
-  border: none;
-  color: white;
-  border-radius: 10rem;
-  cursor: pointer;
-  font-size: 2.5rem;
-  margin-top: 10px;
+    width: 90%;
+    padding: 15px;
+    background-color: #ffc107;
+    border: none;
+    border-radius: 20px;
+    color: #000000;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    cursor: pointer;
+    text-transform: uppercase;
 }
 
+.btn-editar:hover {
+    background-color: #e0a800;
+}
 .menu {
   display: flex;
+  padding: 10px;
   justify-content: space-around;
   position: fixed;
   bottom: 0;
   left: 0;
   width: 100%;
   background: #f5b700;
-  padding: 30px;
   border-top: 1px solid #ddd;
 }
 
@@ -79,7 +106,7 @@ input::placeholder {
 }
 
 .menu i {
-  font-size: 60px;
+  font-size: 25px;
   display: block;
   margin-bottom: 5px;
   transition: transform 0.2s;
