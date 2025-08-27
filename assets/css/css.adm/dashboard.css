@@ -8,6 +8,7 @@ body {
 .container {
   padding: 30px 0px;
   text-align: center;
+  margin-left: 5rem;
 }
 
 .back-arrow {
@@ -22,13 +23,12 @@ body {
   display: flex;
   align-items: center;
   gap: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   flex-wrap: wrap;
-  /* permite quebra em telas pequenas */
 }
 
 .filter-container input[type="date"] {
-  padding: 8px;
+  padding: 9px;
   border: 1px solid #ccc;
   border-radius: 5px;
   flex: 1;
@@ -55,9 +55,9 @@ h2 {
   width: 100%;
   background-color: #fff;
   border-radius: 15px;
-  padding: 10px;
+  padding: 15px;
   box-sizing: border-box;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -92,7 +92,6 @@ h3 {
   background-color: #b0f5ca;
 }
 
-/* Menu padrão: horizontal embaixo (mobile first) */
 .menu {
   display: flex;
   padding: 10px;
@@ -104,7 +103,6 @@ h3 {
   background: #f5b700;
   border-top: 1px solid #ddd;
   flex-direction: row;
-  /* horizontal */
 }
 
 .menu a {
@@ -137,7 +135,6 @@ h3 {
 
   .menu a {
     flex: none;
-    /* para não esticar */
     padding: 20px 0;
     font-size: 12px;
   }
@@ -148,7 +145,8 @@ h3 {
 }
 @media (max-width: 768px) {
   .container {
-    padding: 20px 10px;
+    padding: 20px 15px;
+    margin-left: 1rem;
   }
 
   .back-arrow {
@@ -164,7 +162,7 @@ h3 {
   }
 
   .btn {
-    width: 100%;
+    width: 35%;
     font-size: 15px;
     padding: 10px 20px;
   }
@@ -184,7 +182,8 @@ h3 {
 
 @media (max-width: 480px) {
   .container {
-    padding: 15px 5px;
+    padding: 20px 15px;
+    margin-left: 1rem;
   }
 
   .back-arrow {
@@ -201,7 +200,7 @@ h3 {
   }
 
   .btn {
-    width: 100%;
+    width: 30%;
     font-size: 14px;
     padding: 8px 16px;
   }
