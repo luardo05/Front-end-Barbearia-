@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Klebson Arts</title>
-    <link rel="stylesheet" href="../assets/css/notificacao.css">
+  <title>Klebson Arts - Notificações</title>
+  <link rel="stylesheet" href="../assets/css/notificacao.css">
 </head>
+
 <body>
   <h1>Notificações</h1>
 
-  <div class="card confirmado">
-    <h2>Agendamento confirmado</h2>
-    <p class="info">Luiz Eduardo - 15/07 &nbsp; 08:00h</p>
+  <div id="notifications-container">
+    <p>Carregando notificações...</p>
   </div>
 
-  <div class="card confirmado">
-    <h2>Agendamento confirmado</h2>
-    <p class="info">Luiz Eduardo - 15/07 &nbsp; 08:00h</p>
-  </div>
-
-  <div class="card recusado">
-    <h2>Agendamento recusado</h2>
-    <p class="info">Luiz Eduardo - 15/07 &nbsp; 08:00h</p>
+  <div class="pagination">
+    <button id="prev-page-btn">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+    <span id="page-info"></span>
+    <button id="next-page-btn">
+      <i class="fas fa-arrow-right"></i>
+    </button>
   </div>
 
   <div class="menu">
@@ -37,5 +38,8 @@
     </a>
   </div>
 
+  <!-- Script da página -->
+  <script type="module" src="./assets/js/pages/notificacoes.js"></script>
 </body>
+
 </html>

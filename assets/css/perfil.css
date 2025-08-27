@@ -85,6 +85,17 @@ footer {
 .btn-editar:hover {
     background-color: #e0a800;
 }
+.btn {
+  background-color: #f5b700;
+  border: none;
+  padding: 9px;
+  border-radius: 5px;
+  position: fixed; 
+  top: 20px;   
+  right: 20px;  
+  cursor: pointer;
+}
+
 .menu {
   display: flex;
   padding: 10px;

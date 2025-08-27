@@ -71,3 +71,24 @@ h1 {
   margin-bottom: 5px;
   transition: transform 0.2s;
 }
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.pagination button {
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.pagination button:hover {
+  background: #ffa600a2;
+}

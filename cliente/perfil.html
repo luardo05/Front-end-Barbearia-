@@ -8,24 +8,43 @@
 </head>
 <body>
 <div class="container">
-  <img src="../assets/img/Rectangle 168.png" alt="Foto de Perfil" class="foto-perfil">
-  <h3>Nome Sobrenome</h3>
+  <!-- Foto de perfil -->
+  <form id="upload-photo-form">
+    <img id="profile-photo" src="../assets/img/Rectangle 168.png" alt="Foto de Perfil" class="foto-perfil">
+    <input type="file" id="photo-input" accept="image/*">
+    <button class="btn" type="submit">Atualizar Foto</button>
+    <p id="upload-message"></p>
+  </form>
 
+  <h3 id="profile-name">Nome Sobrenome</h3>
+  <div id="profile-info"></div>
+
+ 
   <div class="input-group">
-    <input type="text" placeholder="Data de Início">
-    <input type="text" placeholder="Visitas">
+    <input type="text" id="inicio" placeholder="Data de Início" disabled>
+    <input type="text" id="visitas" placeholder="Visitas" disabled>
   </div>
 
-  <input type="email" placeholder="E-mail">
-  <input type="password" placeholder="Senha">
-  <input type="text" placeholder="Número">
+  <input type="email" id="email" placeholder="E-mail" disabled>
+  <input type="password" id="senha" placeholder="Senha" disabled>
+  <input type="text" id="numero" placeholder="Número" disabled>
 
   <div class="input-group">
-    <input type="text" placeholder="Data de Nascimento">
-    <input type="text" placeholder="Idade">
+    <input type="text" id="nascimento" placeholder="Data de Nascimento" disabled>
+    <input type="text" id="idade" placeholder="Idade" disabled>
   </div>
 
   <button class="btn-editar">Editar informações</button>
+</div>
+
+<div class="container">
+  <h3>Meus Agendamentos</h3>
+  <div id="appointments-list"></div>
+</div>
+
+<div class="container">
+  <h3>Notificações</h3>
+  <div id="notifications-list"></div>
 </div>
 
 <div class="menu">
@@ -35,11 +54,11 @@
   <a href="home.html">
     <i class="fa-solid fa-scissors"></i>
   </a>
-  <a href="perfil.html">
+  <a href="perfil.html" class="active">
     <i class="fa-solid fa-user"></i>
   </a>
 </div>
 
-
+<script type="module" src="../assets/js/perfil.js"></script>
 </body>
 </html>
