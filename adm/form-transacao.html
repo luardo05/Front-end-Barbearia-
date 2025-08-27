@@ -15,27 +15,21 @@
             <a href="#" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
             <h1>Adicionar Valores</h1>
         </header>
-        <form>
+        
+        <form id="transaction-form">
             <div class="input-group">
-                <label for="nomeCliente">Nome do cliente</label>
-                <input type="text" id="nomeCliente">
+                <label for="descricao">Descrição do Serviço</label>
+                <input type="text" id="descricao" required>
             </div>
             <div class="input-group">
-                <label for="tipoCorte">Tipo de Corte</label>
-                <input type="text" id="tipoCorte">
+                <label for="valor">Valor Recebido</label>
+                <input type="number" id="valor" step="0.01" required>
             </div>
-            <div class="input-group">
-                <label for="valorRecebido">Valor Recebido</label>
-                <input type="text" id="valorRecebido">
-            </div>
-            <div class="input-group">
-                <label for="presencial">Presencial?</label>
-                <input type="text" id="presencial">
-            </div>
+        
+            <button type="submit" class="primary-button">Adicionar Valores</button>
         </form>
 
-
-        <button class="primary-button">Adicionar Valores</button>
+        <div id="message" class="message"></div>
         
         <div class="menu">
             <a href="notificacoes.html">
@@ -52,7 +46,6 @@
             </a>
         </div>
     </div>
-    </div>
 </body>
-
+<script type="module" src="js/form-trasacao.js"></script>
 </html>
