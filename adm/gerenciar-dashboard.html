@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="../assets/css/css.adm/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -15,35 +16,36 @@
             <div class="back-arrow">
                 <a href="#" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
             </div>
-            <div class="metricas">
-                <div class="item">frequência dos clientes</div>
-                <div class="item">quantidade de visitas</div>
-                <div class="item">Quantidade de usuários</div>
+            <div class="metricas" id="dashboard-summary">
+                <p>Carregando dados...</p>
             </div>
         </div>
 
         <div class="content">
             <h2>Rendimentos mensais</h2>
+            <div class="filter-container">
+                <label for="start-date">De:</label>
+                <input type="date" id="start-date">
+                <label for="end-date">Até:</label>
+                <input type="date" id="end-date">
+            </div>
+                <div class="filtre">
+                <button id="filter-btn">Filtrar</button>
+                <button id="reset-filter-btn">Limpar</button>
+                </div>
+
             <div class="chart-container">
-                <img src="../assets/img/Group 7.png" alt="Gráfico de rendimentos mensais" class="image">
+                <h3>Gráfico de Faturamento</h3>
+                <canvas id="revenueChart"></canvas>
             </div>
 
-            <div class="content-mes">
-                <h3>Rendimentos mensais por mês</h3>
-                <div class="select-container">
-                    <select id="mes-select">
-                        <option value="">Selecione o mês</option>
-                    </select>
-                </div>
-                <div class="renda">
-                    <h4>Mês de Janeiro</h4>
-                    <p>Total do rendimento do mês</p>
-                    <p class="total-renda">R$: 3,500.00</p>
-                </div>
+            <div class="chart-container">
+                <h3>Gráfico de Agendamentos</h3>
+                <canvas id="appointmentsChart"></canvas>
             </div>
         </div>
 
-        <a href="../adm/form-servicos.html" class="btn">Adicionar corte</a>
+        <a href="../adm/form-transacao.html" class="btn">Adicionar Valor</a>
 
         <div class="menu">
             <a href="notificacoes.html">
@@ -60,6 +62,7 @@
             </a>
         </div>
     </div>
+    <script type="module" src="js/dashboard.js"></script>
 </body>
 
 </html>
