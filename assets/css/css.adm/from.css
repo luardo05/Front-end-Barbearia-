@@ -8,62 +8,64 @@ body {
   padding: 60px 0px;
   text-align: center;
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .back-arrow {
-    font-size: 24px;
-    text-decoration: none;
-    color: #000;
-    display: flex;
-    margin: 20px;
-    margin-top: -2rem;
+  font-size: 24px;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  margin: 20px;
+  margin-top: -2rem;
 }
 
 .input-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .input-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
-    display: flex;
-    margin: 10px
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+  display: flex;
+  margin: 10px;
 }
 
 .input-group input {
-    width: 95%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 15px;
-    box-sizing: border-box;
-    font-size: 16px;
-    display: flex;
-    background-color: #f7f7f7;
-    margin: 10px;
+  width: 95%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  background-color: #f7f7f7;
+  margin: 10px;
 }
 
 footer {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .primary-button {
-    width: 90%;
-    padding: 15px;
-    background-color: #ffc107;
-    border: none;
-    border-radius: 20px;
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
+  width: 90%;
+  padding: 15px;
+  background-color: #ffc107;
+  border: none;
+  border-radius: 20px;
+  color: #000000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .primary-button:hover {
-    background-color: #e0a800;
+  background-color: #e0a800;
 }
+
+/* Menu padrão: horizontal embaixo (mobile first) */
 .menu {
   display: flex;
   padding: 10px;
@@ -74,6 +76,8 @@ footer {
   width: 100%;
   background: #f5b700;
   border-top: 1px solid #ddd;
+  flex-direction: row;
+  /* horizontal */
 }
 
 .menu a {
@@ -89,4 +93,99 @@ footer {
   display: block;
   margin-bottom: 5px;
   transition: transform 0.2s;
+}
+
+
+/* ================= RESPONSIVIDADE ================= */
+@media (min-width: 768px) {
+  .menu {
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    border-top: none;
+    border-right: 1px solid #ddd;
+  }
+
+  .menu a {
+    flex: none;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+
+  .menu i {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 40px 15px;
+  }
+
+  .back-arrow {
+    font-size: 22px;
+    margin: 15px;
+  }
+
+  .input-group label {
+    font-size: 14px;
+  }
+
+  .input-group input {
+    width: 90%;
+    font-size: 15px;
+    padding: 8px;
+  }
+
+  .primary-button {
+    font-size: 15px;
+    padding: 12px;
+  }
+
+  .menu i {
+    font-size: 22px;
+  }
+
+  .menu a {
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 30px 10px;
+  }
+
+  .back-arrow {
+    font-size: 20px;
+    margin: 10px 0;
+  }
+
+  .input-group label {
+    font-size: 13px;
+  }
+
+  .input-group input {
+    width: 100%;
+    font-size: 14px;
+    padding: 7px;
+    margin: 5px 0;
+  }
+
+  .primary-button {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .menu i {
+    font-size: 20px;
+  }
+
+  .menu a {
+    font-size: 12px;
+  }
 }

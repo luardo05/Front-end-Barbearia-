@@ -5,18 +5,21 @@ body {
 }
 
 .container {
-  padding: 60px 0px;
+  padding: 40px 15px;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
+  margin: 0 auto;
 }
-
 
 .calendar {
   display: inline-block;
   border: 1px solid #ddd;
   border-radius: 10px;
-  padding: 10px;
-  margin: 10px 0;
+  padding: 15px;
+  margin: 15px 0 80px 0;
+  width: 100%;
+  max-width: 420px;
+  margin-bottom: -7px;
 }
 
 .calendar-header {
@@ -27,8 +30,8 @@ body {
 
 .calendar-days {
   display: grid;
-  grid-template-columns: repeat(7, 40px);
-  gap: 5px;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
   margin-top: 10px;
 }
 
@@ -36,6 +39,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .day:hover {
@@ -66,14 +70,23 @@ body {
 
 .btn-agendar {
   background: #f5b700;
-  padding: 12px;
+  padding: 14px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
-  margin-top: 10px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+  width: 100%;
+  max-width: 300px;
+  font-weight: bold;
 }
 
+.btn-agendar:hover {
+  background: #e0a800;
+}
+
+/* Menu inferior fixo */
 .menu {
   display: flex;
   padding: 10px;
@@ -84,6 +97,8 @@ body {
   width: 100%;
   background: #f5b700;
   border-top: 1px solid #ddd;
+  flex-direction: row;
+  /* horizontal */
 }
 
 .menu a {
@@ -99,4 +114,88 @@ body {
   display: block;
   margin-bottom: 5px;
   transition: transform 0.2s;
+}
+
+/* ================= RESPONSIVIDADE ================= */
+@media (min-width: 768px) {
+  .menu {
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    border-top: none;
+    border-right: 1px solid #ddd;
+  }
+
+  .menu a {
+    flex: none;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+
+  .menu i {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar {
+    max-width: 100%;
+    padding: 10px;
+  }
+
+  .day {
+    padding: 8px;
+    font-size: 13px;
+  }
+
+  .horarios button {
+    font-size: 13px;
+    padding: 8px 12px;
+  }
+
+  .btn-agendar {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .menu i {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .calendar-days {
+    gap: 4px;
+  }
+
+  .day {
+    padding: 6px;
+    font-size: 12px;
+  }
+
+  .horarios {
+    gap: 6px;
+  }
+
+  .horarios button {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .btn-agendar {
+    font-size: 13px;
+    padding: 10px;
+    max-width: 100%;
+  }
+
+  .menu a {
+    font-size: 12px;
+  }
+
+  .menu i {
+    font-size: 20px;
+  }
 }

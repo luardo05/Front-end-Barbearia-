@@ -5,18 +5,20 @@ body {
 }
 
 .container {
-  padding: 60px;
+  padding: 40px 120px;
   text-align: center;
   max-width: 800px;
+  margin: 30px 0px;
+  margin-left: 10rem;
 }
 
 .back-arrow {
-    font-size: 24px;
-    text-decoration: none;
-    color: #000;
-    display: flex;
-    margin: 20px;
-    margin-top: -2rem;
+  font-size: 24px;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  margin: 20px;
+  margin-top: -2rem;
 }
 
 .foto-perfil {
@@ -26,17 +28,16 @@ body {
   margin: 0 auto;
 }
 
-
 .input-group {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .input-group label {
-    font-weight: bold;
-    margin-bottom: 5px;
-    color: #555;
-    display: flex;
-    margin: 10px
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #555;
+  display: flex;
+  margin: 10px
 }
 
 .input-group {
@@ -44,58 +45,63 @@ body {
   justify-content: center;
   gap: 10px;
   margin-bottom: 15px;
-
 }
-input{
+
+input {
   width: 95%;
-    padding: 10px;
-    border: 1px solid #e6e6e6a2;
-    border-radius: 15px;
-    box-sizing: border-box;
-    font-size: 16px;
-    display: flex;
-    border: 1px solid #dbdbdb96;
-    background-color: #f7f7f7;
-    margin: 10px;
+  padding: 10px;
+  border: 1px solid #e6e6e6a2;
+  border-radius: 15px;
+  box-sizing: border-box;
+  font-size: 16px;
+  display: flex;
+  border: 1px solid #dbdbdb96;
+  background-color: #f7f7f7;
+  margin: 10px;
 }
 
 input::placeholder {
-  color: #888;     
+  color: #888;
 }
 
-
+/* Rodapé */
 footer {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
+/* Botões */
 .btn-editar {
-    width: 90%;
-    padding: 15px;
-    background-color: #ffc107;
-    border: none;
-    border-radius: 20px;
-    color: #000000;
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 10px;
-    cursor: pointer;
-    text-transform: uppercase;
+  width: 100%;
+  max-width: 400px;
+  padding: 15px;
+  background-color: #ffc107;
+  border: none;
+  margin-bottom: 10rem;
+  border-radius: 20px;
+  color: #000;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+  cursor: pointer;
+  text-transform: uppercase;
 }
 
 .btn-editar:hover {
-    background-color: #e0a800;
+  background-color: #e0a800;
 }
+
 .btn {
   background-color: #f5b700;
   border: none;
-  padding: 9px;
-  border-radius: 5px;
-  position: absolute; 
-  top: 20px;   
-  right: 20px;  
+  padding: 10px 14px;
+  border-radius: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
   cursor: pointer;
 }
 
+/* Menu inferior responsivo */
 .menu {
   display: flex;
   padding: 10px;
@@ -106,6 +112,7 @@ footer {
   width: 100%;
   background: #f5b700;
   border-top: 1px solid #ddd;
+  flex-direction: row;
 }
 
 .menu a {
@@ -121,4 +128,79 @@ footer {
   display: block;
   margin-bottom: 5px;
   transition: transform 0.2s;
+}
+
+/* ================= RESPONSIVIDADE ================= */
+@media (min-width: 768px) {
+  .menu {
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    border-top: none;
+    border-right: 1px solid #ddd;
+  }
+
+  .menu a {
+    flex: none;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+
+  .menu i {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 15px;
+    margin-left: 1rem;
+  }
+
+  .foto-perfil {
+    width: 9rem;
+    height: 9rem;
+  }
+
+  .btn-editar {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .menu i {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .back-arrow {
+    font-size: 20px;
+    margin: 10px;
+  }
+
+  .foto-perfil {
+    width: 7rem;
+    height: 7rem;
+  }
+
+  input {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .btn-editar {
+    font-size: 13px;
+    padding: 10px;
+  }
+
+  .menu a {
+    font-size: 12px;
+  }
+
+  .menu i {
+    font-size: 18px;
+  }
 }

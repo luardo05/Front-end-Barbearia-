@@ -5,91 +5,97 @@ body {
 }
 
 .container {
-  padding: 60px 0px;
+  padding: 60px 15px;
   text-align: center;
   max-width: 800px;
+  margin: 0 auto;
 }
 
 .back-arrow {
-    font-size: 24px;
-    text-decoration: none;
-    color: #000;
-    display: flex;
-    margin: 20px;
-    margin-top: -2rem;
+  font-size: 24px;
+  text-decoration: none;
+  color: #000;
+  display: flex;
+  margin: 20px;
+  margin-top: -2rem;
 }
 
 .header-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #333;
-    margin: 0;
-    line-height: 1.2;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
 }
 
 .user-card {
-    background-color: #f5b700; 
-    border-radius: 8px;
-    margin-bottom: 10px;
-    padding: 15px;
-    margin: 10px;
-    display: flex;
-    align-items: center;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    gap: 20px;
+  background-color: #f5b700;
+  border-radius: 8px;
+  margin: 10px 0;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 .user-avatar {
-    font-size: 50px;
-    color: #030303;
-    background-color: #f8f8f8;
-    border-radius: 50%;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid #575858;
+  font-size: 50px;
+  color: #030303;
+  background-color: #f8f8f8;
+  border-radius: 50%;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #575858;
+  flex-shrink: 0;
 }
 
 .user-info {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex-grow: 1;
+  min-width: 150px;
 }
 
 .user-detail {
-    font-size: 14px;
-    color: #000000;
-    margin-bottom: 7px;
+  font-size: 14px;
+  color: #000000;
+  margin-bottom: 7px;
 }
 
 .user-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 10px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  flex-wrap: wrap;
 }
 
-.edit-btn, .block-btn {
-    padding: 8px 12px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    font-weight: bold;
-    
+.edit-btn,
+.block-btn {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .edit-btn {
-    background-color: #f8f9fa;
-    color: #333;
-    border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ddd;
 }
 
 .block-btn {
-    background-color: #dc3545;
-    color: #fff;
+  background-color: #dc3545;
+  color: #fff;
 }
+
+/* Menu padrão: horizontal embaixo (mobile first) */
 .menu {
   display: flex;
   padding: 10px;
@@ -100,6 +106,8 @@ body {
   width: 100%;
   background: #f5b700;
   border-top: 1px solid #ddd;
+  flex-direction: row;
+  /* horizontal */
 }
 
 .menu a {
@@ -115,4 +123,93 @@ body {
   display: block;
   margin-bottom: 5px;
   transition: transform 0.2s;
+}
+
+
+/* ================= RESPONSIVIDADE ================= */
+@media (min-width: 768px) {
+  .menu {
+    flex-direction: column;
+    width: 60px;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    bottom: auto;
+    border-top: none;
+    border-right: 1px solid #ddd;
+  }
+
+  .menu a {
+    flex: none;
+    padding: 20px 0;
+    font-size: 12px;
+  }
+
+  .menu i {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-card {
+    background-color: #f5b700;
+    border-radius: 8px;
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    gap: 20px;
+  }
+
+  .user-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-grow: 1;
+    min-width: 150px;
+  }
+
+  .user-actions {
+    justify-content: center;
+  }
+
+  .header-title {
+    font-size: 16px;
+  }
+
+  .back-arrow {
+    font-size: 20px;
+  }
+
+  .user-avatar {
+    font-size: 40px;
+    padding: 8px;
+  }
+
+  .menu i {
+    font-size: 22px;
+  }
+
+  .menu a {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 601px) and (max-width: 1024px) {
+  .container {
+    padding: 50px 20px;
+  }
+
+  .header-title {
+    font-size: 17px;
+  }
+
+  .user-avatar {
+    font-size: 45px;
+  }
+
+  .menu i {
+    font-size: 23px;
+  }
 }
