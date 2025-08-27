@@ -90,7 +90,7 @@ footer {
   border: none;
   padding: 9px;
   border-radius: 5px;
-  position: fixed; 
+  position: absolute; 
   top: 20px;   
   right: 20px;  
   cursor: pointer;
