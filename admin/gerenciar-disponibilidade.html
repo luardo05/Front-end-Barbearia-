@@ -1,36 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciar Disponibilidade - Painel do Admin</title>
-    <style> /* Estilos básicos para o calendário e o modal */
-        #calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; }
-        .day { border: 1px solid #ccc; padding: 10px; min-height: 80px; }
-        .day.disponivel { background-color: #d4edda; }
-        .day.indisponivel { background-color: #f8d7da; text-decoration: line-through; }
-        .modal { display: none; position: fixed;  } /* Estilos de modal */
-    </style>
+    <!-- Font Awesome para os ícones do menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- CSS Base, Menu e da Página -->
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <!-- CSS Componente do Menu (reutilizado) -->
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/gerenciar-disponibilidade.css">
 </head>
-<body>
-    <h1>Gerenciar Disponibilidade</h1>
-    <a href="index.html">Voltar para o Dashboard</a>
-    <hr>
-    <div id="nav-months">
-        <button id="prev-month-btn">&lt; Mês Anterior</button>
-        <h2 id="current-month-year"></h2>
-        <button id="next-month-btn">Próximo Mês &gt;</button>
-    </div>
-    <div id="calendar"></div>
 
-    <!-- Modal para editar horários de um dia -->
-    <div id="slots-modal" class="modal">
-        <h3>Editar Horários para <span id="modal-date"></span></h3>
-        <div id="slots-container"></div>
-        <button id="add-slot-btn">Adicionar Intervalo</button>
-        <button id="save-slots-btn">Salvar Horários</button>
-        <button id="close-modal-btn">Fechar</button>
-    </div>
-    
+<body>
+    <!-- Menu de Navegação Padrão -->
+    <nav class="menu">
+        <a href="index.html" data-tooltip="Dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a>
+        <a href="gerenciar-agendamentos.html" data-tooltip="Agendamentos"><i
+                class="fa-solid fa-calendar-days"></i><span>Agendamentos</span></a>
+        <a href="gerenciar-servicos.html" data-tooltip="Serviços"><i
+                class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="gerenciar-usuarios.html" data-tooltip="Usuários"><i
+                class="fa-solid fa-users"></i><span>Usuários</span></a>
+        <a href="gerenciar-disponibilidade.html" class="active" data-tooltip="Disponibilidade"><i
+                class="fa-solid fa-clock"></i><span>Disponibilidade</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i
+                class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+
+    <main class="main-content">
+        <h1>Gerenciar Disponibilidade</h1>
+        <p>Clique em um dia para torná-lo disponível (verde) ou indisponível (vermelho). Para editar os horários de um
+            dia disponível, clique em "Editar Horários", ou pressione o dia para Editar Horários.</p>
+
+        <nav class="calendar-nav">
+            <button id="prev-month-btn">&lt; Mês Anterior</button>
+            <h2 id="current-month-year"></h2>
+            <button id="next-month-btn">Próximo Mês &gt;</button>
+        </nav>
+
+        <div id="calendar-container" class="calendar-grid">
+            <!-- O calendário será renderizado aqui pelo JavaScript -->
+        </div>
+    </main>
+
     <script type="module" src="js/gerenciarDisponibilidade.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
 </body>
+
 </html>

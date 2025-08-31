@@ -49,29 +49,23 @@ const loadDashboardData = async () => {
 
         // --- RENDERIZAÇÃO DO RESUMO (CARDS) APRIMORADA ---
         summaryDiv.innerHTML = `
-            <div style="display: flex; gap: 20px; flex-wrap: wrap;">
-                <div style="border: 1px solid #ccc; padding: 10px; flex: 1;">
-                    <h4>Faturamento no Período</h4>
-                    <!-- Mostra o Faturamento Líquido como valor principal -->
-                    <p style="font-size: 24px; font-weight: bold;">R$ ${summary.totalRevenue.toFixed(2)}</p> 
-                    <hr>
-                    <!-- Detalhamento de ativos e estornos -->
-                    <p style="color: green;"><strong>(+) Ativos:</strong> R$ ${summary.receitaBruta.toFixed(2)}</p>
-                    
-                    <p style="color: red;"><strong>(-) Estornos:</strong> R$ ${summary.totalEstornos.toFixed(2)}</p>
-                </div>
-                <div style="border: 1px solid #ccc; padding: 10px; flex: 1;">
-                    <h4>Taxa de Faturamento</h4>
-                    <p>Online: ${summary.revenuePercentage.online}%</p>
-                    <p>Presencial: ${summary.revenuePercentage.presencial}%</p>
-                </div>
-                <div style="border: 1px solid #ccc; padding: 10px; flex: 1;">
-                    <h4>Agendamentos no Período</h4>
-                    <p><strong>Total:</strong> ${summary.appointmentCounts.total}</p>
-                    <p><strong>Concluídos:</strong> ${summary.appointmentCounts.concluido}</p>
-                    <p><strong>Cancelados:</strong> ${summary.appointmentCounts.cancelado}</p>
-                    <p><strong>Pendentes:</strong> ${summary.appointmentCounts.pendente}</p>
-                </div>
+            <div class="summary-card">
+                <h4>Faturamento no Período</h4>
+                <p class="main-value">R$ ${summary.totalRevenue.toFixed(2)}</p>
+                <p class="detail positive">(+) Ativos: <span class="detail-value">R$ ${summary.receitaBruta.toFixed(2)}</span></p>
+                <p class="detail negative">(-) Estornos: <span class="detail-value">R$ ${summary.totalEstornos.toFixed(2)}</span></p>
+            </div>
+            <div class="summary-card">
+                <h4>Taxa de Faturamento</h4>
+                <p class="detail">Online: <span class="detail-value">${summary.revenuePercentage.online}%</span></p>
+                <p class="detail">Presencial: <span class="detail-value">${summary.revenuePercentage.presencial}%</span></p>
+            </div>
+            <div class="summary-card">
+                <h4>Agendamentos no Período</h4>
+                <p class="detail"><strong>Total:</strong> <span class="detail-value">${summary.appointmentCounts.total}</span></p>
+                <p class="detail"><strong>Concluídos:</strong> <span class="detail-value">${summary.appointmentCounts.concluido}</span></p>
+                <p class="detail"><strong>Cancelados:</strong> <span class="detail-value">${summary.appointmentCounts.cancelado}</span></p>
+                <p class="detail"><strong>Pendentes:</strong> <span class="detail-value">${summary.appointmentCounts.pendente}</span></p>
             </div>
         `;
 
@@ -92,7 +86,16 @@ const loadDashboardData = async () => {
                     borderWidth: 1
                 }]
             },
-            options: { scales: { y: { beginAtZero: true } } }
+            options: {
+                // --- OPÇÕES DE RESPONSIVIDADE ADICIONADAS ---
+                responsive: true, // Garante que o gráfico se redimensione com a janela
+                maintainAspectRatio: false, // Permite que o gráfico preencha a altura do contêiner que definimos no CSS
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
         });
 
         // 3. Renderiza o Gráfico de Agendamentos
@@ -112,7 +115,16 @@ const loadDashboardData = async () => {
                     fill: true
                 }]
             },
-            options: { scales: { y: { beginAtZero: true } } }
+            options: {
+                // --- OPÇÕES DE RESPONSIVIDADE ADICIONADAS ---
+                responsive: true, // Garante que o gráfico se redimensione com a janela
+                maintainAspectRatio: false, // Permite que o gráfico preencha a altura do contêiner que definimos no CSS
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
         });
 
     } catch (error) {

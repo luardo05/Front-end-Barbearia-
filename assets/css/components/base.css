@@ -1,0 +1,31 @@
+/* File: frontend/assets/css/base.css */
+
+/*
+  1. Use um seletor universal (*) e seus pseudo-elementos para aplicar
+     o box-sizing a tudo.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remova a margem padrão do body para evitar barras de rolagem inesperadas.
+*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  /* Garante que o body não "encolha" com o menu lateral em desktop */
+  min-width: 320px; 
+}
+
+/*
+  3. Garante que as imagens não estourem seus contêineres.
+*/
+img,
+canvas { /* Aplicando também ao canvas */
+  max-width: 100%;
+  display: block; /* Remove o espaço extra abaixo das imagens */
+}

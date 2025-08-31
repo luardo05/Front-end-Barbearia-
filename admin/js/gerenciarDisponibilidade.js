@@ -1,8 +1,20 @@
 // File: frontend/admin/js/gerenciarDisponibilidade.js
-import { getMyProfile, getAvailabilityForMonth, setAvailability, getAvailabilityForDate } from '../../assets/js/services/api.js';
+import { getMyProfile, getAvailabilityForMonth, setAvailability } from '../../assets/js/services/api.js';
 
-// --- Auth Guard ---
+// --- Variável de Estado Global ---
+let currentDate = new Date();
+let pressTimer = null; // Timer para a detecção do toque longo
+
+// --- LÓGICA PRINCIPAL EXECUTADA APÓS O HTML CARREGAR ---
 document.addEventListener('DOMContentLoaded', async () => {
+
+    // --- Seletores de Elementos ---
+    const calendarContainer = document.getElementById('calendar-container');
+    const monthYearSpan = document.getElementById('current-month-year');
+    const prevMonthBtn = document.getElementById('prev-month-btn');
+    const nextMonthBtn = document.getElementById('next-month-btn');
+
+    // --- Auth Guard ---
     if (!localStorage.getItem('jwt_token')) {
         window.location.href = '/login.html';
         return;
@@ -13,131 +25,152 @@ document.addEventListener('DOMContentLoaded', async () => {
             alert('Acesso negado.');
             window.location.href = '/client/index.html';
         } else {
-            // Se for admin, carrega o calendário para o mês atual.
-            renderCalendar(currentDate);
+            initializeCalendar();
         }
     } catch (error) {
         window.location.href = '/login.html';
     }
-});
 
-// --- Seletores de Elementos Globais ---
-const calendarDiv = document.getElementById('calendar');
-const monthYearSpan = document.getElementById('current-month-year');
-const prevMonthBtn = document.getElementById('prev-month-btn');
-const nextMonthBtn = document.getElementById('next-month-btn');
-
-const modal = document.getElementById('slots-modal');
-const modalDateSpan = document.getElementById('modal-date');
-const slotsContainer = document.getElementById('slots-container');
-const addSlotBtn = document.getElementById('add-slot-btn');
-const saveSlotsBtn = document.getElementById('save-slots-btn');
-const closeModalBtn = document.getElementById('close-modal-btn');
-
-let currentDate = new Date();
-let currentEditingDate = null;
-
-/**
- * Renderiza o calendário para o mês e ano da data fornecida.
- * @param {Date} date - Uma data dentro do mês a ser renderizado.
- */
-async function renderCalendar(date) {
-    calendarDiv.innerHTML = '<p>Carregando calendário...</p>';
-    const year = date.getFullYear();
-    const month = date.getMonth(); // 0-11
-
-    monthYearSpan.textContent = `${date.toLocaleString('pt-BR', { month: 'long' })} de ${year}`;
-
-    try {
-        // Busca as configurações de disponibilidade salvas para o mês
-        const response = await getAvailabilityForMonth(year, month + 1);
-        const monthConfig = response.data.availabilities;
-
-        // Limpa o calendário e adiciona os cabeçalhos dos dias da semana
-        calendarDiv.innerHTML = '';
-        ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].forEach(day => {
-            const dayHeader = document.createElement('div');
-            dayHeader.textContent = day;
-            dayHeader.style.fontWeight = 'bold';
-            calendarDiv.appendChild(dayHeader);
+    /**
+     * Inicializa o calendário e adiciona todos os event listeners.
+     */
+    function initializeCalendar() {
+        // Listeners de navegação de mês
+        prevMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() - 1);
+            renderCalendar(currentDate);
         });
 
-        // Lógica para desenhar os dias no calendário
-        const firstDayOfMonth = new Date(year, month, 1).getDay(); // 0=Dom, 1=Seg,...
-        const daysInMonth = new Date(year, month + 1, 0).getDate();
+        nextMonthBtn.addEventListener('click', () => {
+            currentDate.setMonth(currentDate.getMonth() + 1);
+            renderCalendar(currentDate);
+        });
 
-        // Adiciona células vazias para os dias antes do início do mês
-        for (let i = 0; i < firstDayOfMonth; i++) {
-            calendarDiv.appendChild(document.createElement('div'));
-        }
+        // --- LISTENERS DE INTERAÇÃO (TOQUE E CLIQUE) ---
 
-        // Cria uma célula para cada dia do mês
-        for (let day = 1; day <= daysInMonth; day++) {
-            const dayCell = document.createElement('div');
-            dayCell.classList.add('day');
+        // Inicia o timer no começo do toque
+        calendarContainer.addEventListener('touchstart', (e) => {
+            const dayCell = e.target.closest('.day-cell.disponivel');
+            if (!dayCell) return;
 
-            const dayDate = new Date(Date.UTC(year, month, day));
-            const dateString = dayDate.toISOString().split('T')[0]; // Formato YYYY-MM-DD
-            dayCell.dataset.date = dateString;
+            pressTimer = window.setTimeout(() => {
+                e.preventDefault();
+                const date = dayCell.dataset.date;
+                console.log(`Long press detectado em: ${date}`);
+                window.location.href = `editar-dia.html?date=${date}`;
+            }, 600); // 600ms para ser considerado um "long press"
+        });
 
-            // Encontra a configuração específica para este dia
-            const dayConfig = monthConfig.find(c => new Date(c.date).getUTCDate() === day);
-            const status = dayConfig ? dayConfig.status : (dayDate.getDay() === 0 ? 'indisponivel' : 'disponivel'); // Padrão
+        // Cancela o timer se o toque terminar antes do tempo
+        calendarContainer.addEventListener('touchend', () => {
+            clearTimeout(pressTimer);
+        });
 
-            dayCell.innerHTML = `<span>${day}</span>`;
-            if (status === 'disponivel') {
-                dayCell.classList.add('disponivel');
-                // --- MUDANÇA AQUI: O botão agora é um link ---
-                const editLink = document.createElement('a');
-                editLink.href = `editar-dia.html?date=${dateString}`;
-                editLink.innerHTML = `<button class="edit-slots-btn">Editar Horários</button>`;
-                dayCell.appendChild(editLink);
-            } else {
-                dayCell.classList.add('indisponivel');
+        // Cancela o timer se o usuário mover o dedo (scroll)
+        calendarContainer.addEventListener('touchmove', () => {
+            clearTimeout(pressTimer);
+        });
+
+        // Listener de CLIQUE (para desktops e toques rápidos em mobile)
+        calendarContainer.addEventListener('click', async (e) => {
+            // Previne a ação do link do botão de editar em desktops
+            if (e.target.closest('.edit-slots-btn a')) {
+                return;
             }
 
-            calendarDiv.appendChild(dayCell);
-        }
+            const dayCell = e.target.closest('.day-cell');
+            if (dayCell) {
+                // Alterna o status do dia (lógica de toque rápido)
+                const date = dayCell.dataset.date;
+                if (!date) return;
 
-    } catch (error) {
-        calendarDiv.innerHTML = `<p style="color: red;">Erro ao carregar calendário: ${error.message}</p>`;
-    }
-}
+                const isDisponivel = dayCell.classList.contains('disponivel');
+                const newStatus = isDisponivel ? 'indisponivel' : 'disponivel';
+                const defaultSlots = [{ start: '09:00', end: '12:00' }, { start: '14:00', end: '18:00' }];
 
-// --- Event Listeners de Navegação e Interação ---
-
-prevMonthBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() - 1);
-    renderCalendar(currentDate);
-});
-
-nextMonthBtn.addEventListener('click', () => {
-    currentDate.setMonth(currentDate.getMonth() + 1);
-    renderCalendar(currentDate);
-});
-
-calendarDiv.addEventListener('click', async (e) => {
-    if (e.target.closest('.edit-slots-btn')) {
-        return;
-    }
-    const dayCell = e.target.closest('.day');
-    if (!dayCell) return;
-
-    const date = dayCell.dataset.date;
-
-    // Se clicou no dia para alternar o status
-    const isDisponivel = dayCell.classList.contains('disponivel');
-    const newStatus = isDisponivel ? 'indisponivel' : 'disponivel';
-    const defaultSlots = [{ start: '09:00', end: '12:00' }, { start: '14:00', end: '18:00' }];
-
-    try {
-        await setAvailability({
-            date: date,
-            status: newStatus,
-            slots: newStatus === 'disponivel' ? defaultSlots : []
+                try {
+                    await setAvailability({
+                        date: date,
+                        status: newStatus,
+                        slots: newStatus === 'disponivel' ? defaultSlots : []
+                    });
+                    renderCalendar(currentDate);
+                } catch (error) {
+                    alert(`Erro ao atualizar o dia: ${error.message}`);
+                }
+            }
         });
-        renderCalendar(currentDate); // Recarrega o calendário para refletir a mudança
-    } catch (error) {
-        alert(`Erro ao atualizar o dia: ${error.message}`);
+
+        // Carrega o calendário pela primeira vez.
+        renderCalendar(currentDate);
+    }
+
+    /**
+     * Renderiza o calendário para o mês e ano da data fornecida.
+     */
+    async function renderCalendar(date) {
+        calendarContainer.innerHTML = '<p>Carregando calendário...</p>';
+        const year = date.getFullYear();
+        const month = date.getMonth();
+
+        monthYearSpan.textContent = `${date.toLocaleString('pt-BR', { month: 'long' })} de ${year}`;
+
+        try {
+            const response = await getAvailabilityForMonth(year, month + 1);
+            const monthConfig = response.data.availabilities;
+            const availabilityMap = new Map(monthConfig.map(dayInfo => [
+                new Date(dayInfo.date).toISOString().split('T')[0],
+                dayInfo
+            ]));
+
+            calendarContainer.innerHTML = '';
+            ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'].forEach(day => {
+                const dayHeader = document.createElement('div');
+                dayHeader.textContent = day;
+                dayHeader.classList.add('calendar-header');
+                calendarContainer.appendChild(dayHeader);
+            });
+
+            const firstDayOfMonth = new Date(year, month, 1).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            for (let i = 0; i < firstDayOfMonth; i++) {
+                const emptyCell = document.createElement('div');
+                emptyCell.classList.add('day-cell', 'empty');
+                calendarContainer.appendChild(emptyCell);
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const dayCell = document.createElement('div');
+                dayCell.classList.add('day-cell');
+                
+                const dayDate = new Date(Date.UTC(year, month, day));
+                const dateString = dayDate.toISOString().split('T')[0];
+                dayCell.dataset.date = dateString;
+
+                const dayConfig = availabilityMap.get(dateString);
+                let status = (dayDate.getUTCDay() === 0) ? 'indisponivel' : 'disponivel';
+                if(dayConfig) {
+                    status = dayConfig.status;
+                }
+                
+                dayCell.innerHTML = `<span class="day-number">${day}</span>`;
+                dayCell.classList.add(status);
+
+                if (status === 'disponivel') {
+                    // O botão de editar (visível apenas em desktop) agora é um link.
+                    const editLink = document.createElement('a');
+                    editLink.href = `editar-dia.html?date=${dateString}`;
+                    editLink.classList.add('edit-slots-btn');
+                    editLink.textContent = 'Editar';
+                    dayCell.appendChild(editLink);
+                }
+                
+                calendarContainer.appendChild(dayCell);
+            }
+
+        } catch (error) {
+            calendarContainer.innerHTML = `<p style="color: red;">Erro ao carregar calendário: ${error.message}</p>`;
+        }
     }
 });

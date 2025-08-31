@@ -1,0 +1,178 @@
+/* ==========================================================================
+   gerenciar-disponibilidade.css - Estilos Específicos da Página
+   ========================================================================== */
+
+/* --- LAYOUT GERAL --- */
+.main-content {
+    /* Padrão para desktop */
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s;
+}
+
+/* --- NAVEGAÇÃO DO CALENDÁRIO --- */
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-nav h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.calendar-nav button {
+    background-color: #F8C12A;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.calendar-nav button:hover {
+    background-color: #e0a800;
+}
+
+/* --- GRID DO CALENDÁRIO --- */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.calendar-header {
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 10px;
+    color: #555;
+}
+
+.day-cell {
+    aspect-ratio: 1 / 1; /* Força a célula a ser um quadrado */
+    padding: 8px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.day-cell.empty {
+    background-color: #f9f9f9;
+    border-color: transparent;
+}
+
+.day-number {
+    font-weight: bold;
+}
+
+.day-cell.disponivel {
+    background-color: #e8f5e9;
+    cursor: pointer;
+}
+
+.day-cell.disponivel:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.day-cell.indisponivel {
+    background-color: #ffebee;
+    color: #aaa;
+    cursor: pointer;
+}
+
+.day-cell.indisponivel:hover {
+    background-color: #ffcdd2;
+}
+
+.day-cell.indisponivel .day-number {
+    text-decoration: line-through;
+}
+
+.edit-slots-btn {
+    padding: 5px;
+    font-size: 12px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #333;
+    white-space: nowrap; /* Impede que o texto quebre */
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 60px; /* Largura do menu lateral */
+    }
+}
+
+@media (max-width: 767px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+        padding-bottom: 90px; /* Espaço para o menu inferior */
+    }
+    
+    .calendar-nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .calendar-nav h2 {
+        font-size: 1.2rem;
+        width: 100%;
+        order: -1;
+    }
+
+    .calendar-grid {
+        gap: 5px;
+        padding: 10px;
+    }
+
+    .day-cell {
+        padding: 5px;
+    }
+}
+
+@media (max-width: 479px) {
+    .calendar-nav button {
+        flex-grow: 1; /* Faz os botões crescerem */
+    }
+
+    .calendar-grid {
+        gap: 3px;
+        padding: 5px;
+    }
+
+    .day-cell {
+        padding: 2px;
+        justify-content: center; /* Centraliza o número, já que o botão some */
+    }
+
+    .day-number {
+        font-size: 0.8rem;
+    }
+
+    .edit-slots-btn {
+        display: none; /* Esconde o botão em telas muito pequenas */
+    }
+}
