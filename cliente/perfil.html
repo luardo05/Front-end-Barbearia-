@@ -8,7 +8,8 @@
 </head>
 <body>
 <div class="container">
-  <!-- Foto de perfil -->
+
+  <!-- Foto e upload -->
   <form id="upload-photo-form">
     <img id="profile-photo" src="../assets/img/Rectangle 168.png" alt="Foto de Perfil" class="foto-perfil">
     <input type="file" id="photo-input" accept="image/*">
@@ -16,10 +17,11 @@
     <p id="upload-message"></p>
   </form>
 
+  <!-- Nome e info -->
   <h3 id="profile-name">Nome Sobrenome</h3>
   <div id="profile-info"></div>
 
- 
+  <!-- Infos adicionais -->
   <div class="input-group">
     <input type="text" id="inicio" placeholder="Data de Início" disabled>
     <input type="text" id="visitas" placeholder="Visitas" disabled>
@@ -35,13 +37,18 @@
   </div>
 
   <button class="btn-editar">Editar informações</button>
-</div>
 
-<div class="container">
+  <!-- Agendamentos -->
   <h3>Meus Agendamentos</h3>
   <div id="appointments-list"></div>
+
+  <!-- Notificações -->
+  <h3>Notificações</h3>
+  <div id="notifications-list"></div>
+
 </div>
 
+<!-- Menu -->
 <div class="menu">
   <a href="notificacoes.html">
     <i class="fa-solid fa-bell"></i>
@@ -54,6 +61,7 @@
   </a>
 </div>
 
+<!-- JS -->
 <script type="module" src="../assets/js/perfil.js"></script>
 </body>
 </html>

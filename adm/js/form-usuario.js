@@ -64,7 +64,6 @@ form.addEventListener('submit', async (e) => {
         nome: document.getElementById('nome').value,
         email: document.getElementById('email').value,
         role: document.getElementById('role').value,
-        // Incluindo os campos extras
         cpf: document.getElementById('cpf').value,
         telefone: document.getElementById('telefone').value,
         dataNasc: document.getElementById('dataNasc').value,

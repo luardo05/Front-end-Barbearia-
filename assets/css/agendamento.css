@@ -98,7 +98,6 @@ body {
   background: #f5b700;
   border-top: 1px solid #ddd;
   flex-direction: row;
-  /* horizontal */
 }
 
 .menu a {

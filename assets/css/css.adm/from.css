@@ -5,7 +5,7 @@ body {
 }
 
 .container {
-  padding: 60px 0px;
+  padding: 60px 15px;
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
@@ -20,40 +20,40 @@ body {
   margin-top: -2rem;
 }
 
-.input-group {
-  margin-bottom: 20px;
-}
-
-.input-group label {
+.header-title {
+  font-size: 18px;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #555;
+  color: #333;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.input-group label{
   display: flex;
-  margin: 10px;
-}
-
-.input-group input {
-  width: 95%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 15px;
-  box-sizing: border-box;
-  font-size: 16px;
-  background-color: #f7f7f7;
-  margin: 10px;
-}
-
-footer {
   margin-top: 20px;
 }
 
-.primary-button {
-  width: 90%;
+input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 16px;
+}
+
+input::placeholder {
+  color: #888;
+}
+
+.btn {
+  width: 100%;
+  max-width: 400px;
   padding: 15px;
   background-color: #ffc107;
   border: none;
+  margin-bottom: 10rem;
   border-radius: 20px;
-  color: #000000;
+  color: #000;
   font-size: 16px;
   font-weight: bold;
   margin-top: 10px;
@@ -61,11 +61,10 @@ footer {
   text-transform: uppercase;
 }
 
-.primary-button:hover {
+.btn:hover {
   background-color: #e0a800;
 }
 
-/* Menu padrão: horizontal embaixo (mobile first) */
 .menu {
   display: flex;
   padding: 10px;
@@ -77,7 +76,6 @@ footer {
   background: #f5b700;
   border-top: 1px solid #ddd;
   flex-direction: row;
-  /* horizontal */
 }
 
 .menu a {
@@ -94,7 +92,6 @@ footer {
   margin-bottom: 5px;
   transition: transform 0.2s;
 }
-
 
 /* ================= RESPONSIVIDADE ================= */
 @media (min-width: 768px) {
@@ -122,70 +119,51 @@ footer {
 
 @media (max-width: 768px) {
   .container {
-    padding: 40px 15px;
+    padding: 20px 15px;
+    margin-left: 1rem;
   }
 
-  .back-arrow {
-    font-size: 22px;
-    margin: 15px;
-  }
-
-  .input-group label {
+  .btn {
     font-size: 14px;
-  }
-
-  .input-group input {
-    width: 90%;
-    font-size: 15px;
-    padding: 8px;
-  }
-
-  .primary-button {
-    font-size: 15px;
     padding: 12px;
+  }
+  .input-group label{
+  display: flex;
   }
 
   .menu i {
-    font-size: 22px;
+    font-size: 20px;
   }
-
-  .menu a {
-    font-size: 13px;
+  input {
+  width: 90%;
   }
 }
 
 @media (max-width: 480px) {
-  .container {
-    padding: 30px 10px;
-  }
-
   .back-arrow {
     font-size: 20px;
-    margin: 10px 0;
+    margin: 10px;
   }
 
-  .input-group label {
-    font-size: 13px;
-  }
-
-  .input-group input {
-    width: 100%;
-    font-size: 14px;
-    padding: 7px;
-    margin: 5px 0;
-  }
-
-  .primary-button {
-    width: 100%;
+  input {
     font-size: 14px;
     padding: 10px;
+    width: 90%;
   }
 
-  .menu i {
-    font-size: 20px;
+  .btn{
+    font-size: 13px;
+    padding: 10px;
   }
 
   .menu a {
     font-size: 12px;
+  }
+
+  .menu i {
+    font-size: 18px;
+  }
+  .input-group label{
+    display: flex;
   }
 }

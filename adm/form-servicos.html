@@ -1,56 +1,54 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/css.adm/from.css">
-    <title>Adicionar Corte</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/css.adm/from.css">
+  <title>Adicionar Corte</title>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <a href="#" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
-            <h1>Adicionar Corte</h1>
-        </header>
-        <main>
-            <form>
-                <div class="input-group">
-                    <label for="nome">Nome</label>
-                    <input type="text" id="nome">
-                </div>
-                <div class="input-group">
-                    <label for="descricao">Descrição</label>
-                    <input type="text" id="descricao">
-                </div>
-                <div class="input-group">
-                    <label for="preco">Preço</label>
-                    <input type="text" id="preco">
-                </div>
-                <div class="input-group">
-                    <label for="fotoCorte">Foto do corte</label>
-                    <input type="file" id="fotoCorte">
-                </div>
-            </form>
-        </main>
-        <footer>
-            <button class="primary-button">Adicionar cortes</button>
-        </footer>
+  <div class="container">
+    <header>
+      <a href="gerenciar-servicos.html" class="back-arrow"><i class="fas fa-arrow-left"></i></a>
+      <h3>Adicionar Corte</h3>
+    </header>
 
-        <div class="menu">
-            <a href="notificacoes.html">
-                <i class="fa-solid fa-bell"></i>
-            </a>
-            <a href="home.html">
-                <i class="fa-solid fa-scissors"></i>
-            </a>
-            <a href="gerenciar-dashboard.html">
-                <i class="fa-solid fa-chart-pie"></i>
-            </a>
-            <a href="perfil.html">
-                <i class="fa-solid fa-user"></i>
-            </a>
+    <main>
+      <form id="service-form">
+        <div class="input-group">
+          <label for="nome">Nome</label>
+          <input type="text" id="nome" required>
         </div>
+        <div class="input-group">
+          <label for="descricao">Descrição</label>
+          <input type="text" id="descricao" required>
+        </div>
+        <div class="input-group">
+          <label for="precoBase">Preço</label>
+          <input type="number" id="precoBase" step="0.01" required>
+        </div>
+        <div class="input-group">
+          <label for="duracao">Duração (min)</label>
+          <input type="number" id="duracao" required>
+        </div>
+        <div class="input-group">
+          <label for="imagem">Foto do corte</label>
+          <input type="file" id="imagem">
+        </div>
+
+        <button type="submit" class="btn">Adicionar corte</button>
+      </form>
+    </main>
+
+    <div class="menu">
+      <a href="notificacoes.html"><i class="fa-solid fa-bell"></i></a>
+      <a href="home.html"><i class="fa-solid fa-scissors"></i></a>
+      <a href="gerenciar-dashboard.html"><i class="fa-solid fa-chart-pie"></i></a>
+      <a href="perfil.html"><i class="fa-solid fa-user"></i></a>
     </div>
+  </div>
+
+  <script type="module" src="js/form-servicos.js"></script>
 </body>
 </html>

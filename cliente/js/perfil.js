@@ -1,10 +1,4 @@
-import { 
-  uploadProfilePhoto, 
-  getMyProfile, 
-  getMyAppointments, 
-  cancelMyAppointment, 
-  getMyNotifications, 
-  markNotificationAsRead 
+import {   uploadProfilePhoto,  getMyProfile, getMyAppointments, cancelMyAppointment, getMyNotifications, markNotificationAsRead 
 } from './services/api.js';
 
 // Auth Guard
@@ -25,11 +19,9 @@ const loadProfile = async () => {
         const user = response.data.user;
 
         document.getElementById('profile-name').textContent = user.nome;
-        document.getElementById('profile-info').innerHTML = `
-            <p><strong>Email:</strong> ${user.email}</p>
-        `;
+        document.getElementById('profile-info').innerHTML = `<p><strong>Email:</strong> ${user.email}</p>`;
 
-        if(user.fotoUrl){
+        if (user.fotoUrl) {
           document.getElementById('profile-photo').src = user.fotoUrl;
         }
 

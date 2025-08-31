@@ -83,6 +83,22 @@ body {
   font-size: 14px;
   font-weight: bold;
 }
+.btn {
+  background-color: #59f04b;
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #58d63b;
+}
 
 .edit-btn {
   background-color: #f8f9fa;
@@ -95,7 +111,6 @@ body {
   color: #fff;
 }
 
-/* Menu padrão: horizontal embaixo (mobile first) */
 .menu {
   display: flex;
   padding: 10px;
@@ -107,7 +122,6 @@ body {
   background: #f5b700;
   border-top: 1px solid #ddd;
   flex-direction: row;
-  /* horizontal */
 }
 
 .menu a {
@@ -124,7 +138,6 @@ body {
   margin-bottom: 5px;
   transition: transform 0.2s;
 }
-
 
 /* ================= RESPONSIVIDADE ================= */
 @media (min-width: 768px) {
