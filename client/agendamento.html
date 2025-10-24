@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agendamento - Barbearia</title>
+    <!-- Font Awesome, Base, Menu e CSS da página -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/agendamento.css">
+</head>
+<body>
+    <main class="main-content">
+        <h1>Agendar Serviço</h1>
+        
+        <section class="agendamento-summary">
+            <div>
+                <label for="service-select">1. Escolha o Serviço</label>
+                <select id="service-select" required>
+                    <option value="">Carregando...</option>
+                </select>
+            </div>
+
+            <div class="selection-details">
+                <h3>Sua Seleção</h3>
+                <p><strong>Serviço:</strong> <span id="summary-service">Nenhum</span></p>
+                <p><strong>Data:</strong> <span id="summary-date">Nenhuma</span></p>
+                <p><strong>Horário:</strong> <span id="summary-time">Nenhum</span></p>
+                <p><strong>Preço:</strong> <span id="summary-price">R$ 0.00</span></p>
+            </div>
+
+            <div class="action-buttons">
+                <button id="open-modal-btn" class="btn btn-primary" disabled>2. Escolha a Data e Hora</button>
+                <button id="confirm-appointment-btn" class="btn btn-confirm" disabled>3. Confirmar Agendamento</button>
+            </div>
+            <div id="message"></div>
+        </section>
+    </main>
+
+    <!-- O MODAL ÚNICO -->
+    <div id="agendamento-modal" class="modal">
+        <div class="modal-content">
+            <span id="close-modal-btn">&times;</span>
+            
+            <div id="calendar-view">
+                <div class="calendar-header">
+                    <button id="prev-month-btn">◀</button>
+                    <h3 id="current-month-year"></h3>
+                    <button id="next-month-btn">▶</button>
+                </div>
+                <div id="calendar-days" class="calendar-days"></div>
+            </div>
+
+            <div id="time-view" style="display: none;">
+                <h3>Horários para <span id="selected-date-span"></span></h3>
+                <div id="price-display" style="text-align: center; margin-bottom: 15px;"></div>
+                <div class="horarios" id="time-slots"></div>
+                <button id="back-to-calendar-btn">Voltar</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Menu Fixo Padrão -->
+    <nav class="menu">
+        <a href="home.html" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="agendamento.html" class="active" data-tooltip="Agendamento"><i class="fa-solid fa-calendar-plus"></i><span>Agendar</span></a>
+        <a href="perfil.html" data-tooltip="Perfil"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+
+    <script type="module" src="js/agendamento.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

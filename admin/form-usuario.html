@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuário - Painel do Admin</title>
+    <!-- Links CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/form-usuario.css">
+</head>
+
+<body>
+    <!-- Menu Padrão -->
+    <nav class="menu">
+        <a href="index.html" data-tooltip="Dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a>
+        <a href="gerenciar-agendamentos.html" data-tooltip="Agendamentos"><i class="fa-solid fa-calendar-days"></i><span>Agendamentos</span></a>
+        <a href="gerenciar-servicos.html" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <!-- A página 'Gerenciar Usuários' é a ativa neste fluxo -->
+        <a href="gerenciar-usuarios.html" class="active" data-tooltip="Usuários"><i class="fa-solid fa-users"></i><span>Usuários</span></a>
+        <a href="gerenciar-disponibilidade.html" data-tooltip="Disponibilidade"><i class="fa-solid fa-clock"></i><span>Disponibilidade</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+
+    <main class="main-content">
+        <section class="form-section">
+            <h1 id="form-title">Editar Usuário</h1>
+            <a href="gerenciar-usuarios.html" style="display: block; text-align: center; margin-bottom: 20px;">Voltar para a lista de usuários</a>
+    
+            <form id="edit-user-form" class="edit-user-form">
+                <label for="nome">Nome Completo</label>
+                <input type="text" id="nome" required>
+                
+                <label for="email">E-mail</label>
+                <input type="email" id="email" required>
+                
+                <label for="role">Papel (Role)</label>
+                <select id="role" required>
+                    <option value="cliente">Cliente</option>
+                    <option value="admin">Administrador</option>
+                </select>
+
+                <hr>
+                
+                <label for="senha">Nova Senha</label>
+                <input type="password" id="senha" placeholder="Nova Senha (opcional)">
+                <p class="password-note"><em>Deixe em branco para não alterar.</em></p>
+                
+                <button type="submit" id="save-btn" class="btn-save">Salvar Alterações</button>
+            </form>
+            <div id="message" class="message-feedback"></div>
+        </section>
+    </main>
+
+    <script type="module" src="js/formUsuario.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

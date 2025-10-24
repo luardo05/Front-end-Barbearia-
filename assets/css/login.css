@@ -1,3 +1,5 @@
+/* File: frontend/assets/css/login.css (VERSÃO FINAL) */
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -17,7 +19,7 @@ body {
   display: none;
 }
 
-.active {
+.container.active {
   display: block;
 }
 
@@ -33,12 +35,6 @@ body {
   color: #000000;
   margin-bottom: 20px;
   text-align: center;
-}
-
-label {
-  font-size: 0.9rem;
-  font-weight: 500;
-  color: #404040;
 }
 
 input {
@@ -72,12 +68,18 @@ input:focus {
   text-align: center;
   cursor: pointer;            
   transition: background 0.3s;
+  /* Garante que o botão de submit se pareça com o link */
+  border: none;
 }
 
 .btn:hover {
   background-color: #93979b;   
 }
 
+.btn:disabled {
+    background-color: #93979b;
+    cursor: not-allowed;
+}
 
 .link {
   margin-top: 20px;
@@ -91,6 +93,20 @@ input:focus {
   cursor: pointer;
 }
 
+/* --- ESTILOS ADICIONADOS PARA FEEDBACK --- */
+.message-feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+}
+.message-feedback.success {
+    color: #0f5132;
+}
+.message-feedback.error {
+    color: #a12323;
+}
+/* ------------------------------------------- */
+
 /* Tela de carregamento */
 .loader {
   border: 6px solid #fff;
@@ -103,11 +119,6 @@ input:focus {
 }
 
 @keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }

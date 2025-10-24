@@ -1,0 +1,139 @@
+/* File: frontend/admin/assets/css/gerenciar-servicos.css */
+
+/* --- LAYOUT GERAL --- */
+
+.section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- LISTA DE SERVIÇOS --- */
+.services-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    gap: 15px;
+}
+
+.service-item img {
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.service-details {
+    flex-grow: 1; /* Ocupa o espaço restante */
+}
+
+.service-details h3 {
+    margin: 0 0 5px 0;
+}
+
+.service-details p {
+    margin: 0;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.service-actions button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.btn-edit {
+    background-color: #ffc107; /* Amarelo */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+}
+
+/* --- FORMULÁRIO DE SERVIÇO --- */
+.service-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 600px;
+}
+
+.service-form label {
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.service-form input,
+.service-form textarea,
+.service-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.service-form textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.service-form button[type="submit"] {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.service-form button[type="button"] {
+    background-color: #6c757d; /* Cinza */
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 500px) {
+    .service-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .service-actions {
+        margin-top: 10px;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+    .service-actions button {
+        flex-grow: 1;
+        margin-left: 0;
+    }
+}

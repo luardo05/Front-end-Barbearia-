@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Barbearia</title>
+    <!-- Font Awesome, Base, Menu e CSS da página -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/perfil.css">
+</head>
+<body>
+    <main class="container">
+        
+        <!-- Foto de Perfil -->
+        <label for="photo-input" style="cursor: pointer;" title="Clique para alterar a foto">
+            <img src="../assets/img/default_icon.png" alt="Foto de Perfil" id="profile-photo" class="foto-perfil">
+        </label>
+        <input type="file" id="photo-input" accept="image/*">
+        <p id="upload-message" style="font-size: 12px; height: 15px;"></p>
+
+        <h3 id="profile-name">Carregando...</h3>
+
+        <!-- Formulário de Informações -->
+        <form id="profile-form">
+            <input type="text" id="nome" placeholder="Nome Completo" required disabled>
+            <input type="email" id="email" placeholder="E-mail" required disabled>
+            <input type="text" id="numeroTelefone" placeholder="Número de Telefone" disabled>
+            <input type="password" id="senha" placeholder="Nova Senha (deixe em branco para não alterar)">
+            <input type="date" id="dataNascimento" placeholder="Data de Nascimento" disabled>
+            
+            <button type="submit" class="btn-editar" id="edit-btn">Editar Informações</button>
+        </form>
+        
+        <!-- Listas de Agendamentos -->
+        <h3 class="section-title">Meus Agendamentos</h3>
+        <div id="appointments-list" class="list-container"></div>
+        
+    </main>
+
+    <!-- Menu Fixo Padrão -->
+    <nav class="menu">
+        <a href="home.html" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="agendamento.html" data-tooltip="Agendamento"><i class="fa-solid fa-calendar-plus"></i><span>Agendar</span></a>
+        <a href="perfil.html" class="active" data-tooltip="Perfil"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+    
+    <script type="module" src="js/perfil.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

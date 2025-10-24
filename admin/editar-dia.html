@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Disponibilidade - Painel do Admin</title>
+    <!-- Links CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/editar-dia.css">
+</head>
+
+<body>
+    <!-- Menu Padrão -->
+    <nav class="menu">
+        <a href="index.html" data-tooltip="Dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a>
+        <a href="gerenciar-agendamentos.html" data-tooltip="Agendamentos"><i class="fa-solid fa-calendar-days"></i><span>Agendamentos</span></a>
+        <a href="gerenciar-servicos.html" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="gerenciar-usuarios.html" data-tooltip="Usuários"><i class="fa-solid fa-users"></i><span>Usuários</span></a>
+        <!-- A página 'Gerenciar Disponibilidade' é a ativa neste fluxo -->
+        <a href="gerenciar-disponibilidade.html" class="active" data-tooltip="Disponibilidade"><i class="fa-solid fa-clock"></i><span>Disponibilidade</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+
+    <main class="main-content">
+        <section class="form-section">
+            <h1>Editar Disponibilidade</h1>
+            <h2 id="page-title">Carregando...</h2>
+            <a href="gerenciar-disponibilidade.html" style="display: block; text-align: center; margin-bottom: 20px;">Voltar para o Calendário</a>
+    
+            <h3>Intervalos de Trabalho</h3>
+            <p>Defina os períodos em que você estará disponível para agendamentos neste dia.</p>
+            
+            <div id="slots-container">
+                <!-- Os intervalos de horário serão inseridos aqui -->
+            </div>
+            
+            <button id="add-slot-btn" class="btn-add">+ Adicionar Novo Intervalo</button>
+            <hr>
+        
+            <button id="save-day-btn" class="btn-save">Salvar Alterações</button>
+        </section>
+    </main>
+
+    <script type="module" src="js/editarDia.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,188 @@
+/* --- LAYOUT GERAL DO CONTAINER DA PÁGINA --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto; /* Centraliza o container principal na página */
+    padding: 20px 15px 90px 15px; /* Padding padrão para mobile, com espaço para o menu */
+    text-align: center;
+}
+
+/* --- SEÇÃO DA FOTO E NOME --- */
+.foto-perfil {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover; /* Previne distorção da imagem */
+    margin: 0 auto;
+    border: 4px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* O input de arquivo fica invisível, o 'label' é usado para acioná-lo */
+#photo-input {
+    display: none;
+}
+
+#upload-message {
+    font-size: 13px;
+    height: 18px; /* Altura fixa para não "empurrar" o layout */
+    margin-top: 5px;
+    color: #28a745;
+}
+
+#profile-name {
+    margin-top: 15px;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+/* --- FORMULÁRIO DE INFORMAÇÕES DO PERFIL --- */
+#profile-form {
+    width: 100%;
+    max-width: 500px; /* Largura máxima para os campos do formulário */
+    margin: 0 auto; /* Centraliza o formulário dentro do container */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espaçamento entre os inputs */
+}
+
+#profile-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para campos desabilitados (modo de visualização) */
+#profile-form input:disabled {
+    background-color: #e9ecef;
+    color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* O campo de senha só é visível no modo de edição */
+#profile-form input#senha {
+    display: none;
+}
+
+/* --- BOTÕES DE AÇÃO PRINCIPAIS --- */
+.btn-editar,
+.btn-logout {
+    width: 100%;
+    max-width: 500px; /* Mesma largura do formulário */
+    margin: 10px auto;
+    padding: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-editar:hover,
+.btn-logout:hover {
+    transform: translateY(-2px);
+}
+
+.btn-editar {
+    background-color: #ffc107; /* Amarelo */
+    color: #333;
+}
+
+.btn-logout {
+    background-color: #6c757d; /* Cinza */
+    color: #fff;
+}
+
+
+/* --- SEÇÕES DE LISTAS (AGENDAMENTOS E NOTIFICAÇÕES) --- */
+.section-title {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.list-container {
+    text-align: left;
+    width: 100%;
+    max-width: 700px; /* Largura maior para as listas */
+    margin: 0 auto; /* Centraliza as listas */
+}
+
+.list-item {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.list-item p {
+    margin: 0 0 8px 0;
+}
+
+.list-item p:last-child {
+    margin-bottom: 0;
+}
+
+.list-item small {
+    color: #777;
+}
+
+.list-item button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.list-item.unread {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    border-left: 5px solid #ffc107; /* Borda de destaque */
+}
+
+/* --- RESPONSIVIDADE --- */
+
+@media (min-width: 768px) {
+    .container {
+        padding-left: 80px; /* Espaço para o menu lateral (60px) + 20px */
+        padding-right: 20px;
+        padding-bottom: 40px; /* Reduz o padding inferior em telas grandes */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .foto-perfil {
+        width: 120px;
+        height: 120px;
+    }
+    #profile-name {
+        font-size: 1.5rem;
+    }
+    .btn-editar, .btn-logout {
+        padding: 12px;
+        font-size: 0.9rem;
+    }
+    .list-item {
+        padding: 12px;
+    }
+}

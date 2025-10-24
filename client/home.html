@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Serviços - Barbearia</title>
+  <!-- Font Awesome, Base, Menu e CSS da página -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="../assets/css/components/base.css">
+  <link rel="stylesheet" href="../assets/css/components/menu.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+</head>
+
+<body>
+  <main class="container">
+    <header class="header">
+      <h1>Nossos Serviços</h1>
+    </header>
+
+    <!-- O grid onde os cards de serviço serão inseridos -->
+    <section class="grid" id="services-list">
+      <p>Carregando serviços...</p>
+    </section>
+
+  </main>
+
+  <!-- Menu Fixo Padrão -->
+  <nav class="menu">
+    <a href="home.html" class="active" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+    <a href="agendamento.html" data-tooltip="Agendamento"><i class="fa-solid fa-calendar-plus"></i><span>Agendar</span></a>
+    <a href="perfil.html" data-tooltip="Perfil"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+    <a href="notificacoes.html" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+  </nav>
+
+  <!-- Importa o JS da página e o JS global -->
+  <script type="module" src="js/home.js"></script>
+  <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

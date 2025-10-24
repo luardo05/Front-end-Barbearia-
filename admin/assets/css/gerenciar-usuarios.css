@@ -1,0 +1,132 @@
+/* File: frontend/admin/assets/css/gerenciar-usuarios.css */
+
+/* --- LAYOUT GERAL --- */
+.section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+/* --- TABELA DE USUÁRIOS --- */
+.users-table {
+    width: 100%;
+    border-collapse: collapse; /* Remove o espaçamento entre as bordas */
+}
+
+.users-table th,
+.users-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.users-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+}
+
+.users-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Ações na tabela */
+.users-table .actions button {
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #ffc107; /* Amarelo */
+}
+
+.btn-delete {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+}
+
+/* --- FORMULÁRIO DE ADIÇÃO --- */
+.user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.user-form label {
+    font-weight: bold;
+    margin-bottom: -10px;
+}
+
+.user-form input,
+.user-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.user-form button {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.user-form button:hover {
+    background-color: #218838;
+}
+
+/* --- RESPONSIVIDADE PARA A TABELA --- */
+@media (max-width: 767px) {
+    /* Força a tabela a não ser uma tabela, mas sim blocos */
+    .users-table thead {
+        display: none; /* Esconde o cabeçalho */
+    }
+    .users-table, .users-table tbody, .users-table tr, .users-table td {
+        display: block;
+        width: 100%;
+    }
+    .users-table tr {
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+    }
+    .users-table td {
+        text-align: right; /* Alinha o valor à direita */
+        padding-left: 50%; /* Espaço para a label */
+        position: relative;
+        border-bottom: 1px solid #eee;
+    }
+    .users-table td:before {
+        content: attr(data-label); /* Pega o texto da 'data-label' */
+        position: absolute;
+        left: 10px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+    }
+    .users-table td:last-child {
+        border-bottom: 0; /* Remove a borda do último item */
+    }
+}

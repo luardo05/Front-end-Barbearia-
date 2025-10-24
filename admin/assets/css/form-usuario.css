@@ -1,0 +1,82 @@
+/* File: frontend/admin/assets/css/form-usuario.css */
+
+/* --- LAYOUT GERAL --- */
+.main-content {
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza o conteúdo */
+}
+
+/* --- SEÇÃO DO FORMULÁRIO --- */
+.form-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.form-section h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.edit-user-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Espaçamento entre os campos */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.edit-user-form label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: -10px; /* Aproxima a label do input */
+}
+
+.edit-user-form input,
+.edit-user-form select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.password-note {
+    font-size: 0.8rem;
+    color: #777;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.btn-save {
+    background-color: #28a745; /* Verde */
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+.btn-save:hover {
+    background-color: #218838;
+}
+
+.btn-save:disabled {
+    background-color: #aaa;
+    cursor: not-allowed;
+}
+
+.message-feedback {
+    text-align: center;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.message-feedback.success { color: #155724; }
+.message-feedback.error { color: #721c24; }

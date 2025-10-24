@@ -1,22 +1,24 @@
+/* File: frontend/assets/css/registro.css (VERSÃO FINAL) */
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     background-color: #F8C12A;
-    /* fundo amarelo */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh; /* Usa min-height para acomodar o conteúdo em telas pequenas */
+    padding: 20px 0; /* Adiciona padding vertical */
 }
 
 .logo-container {
     width: 100%;
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 20px; /* Reduz a margem para telas menores */
 }
 
 .logo {
-    width: 150px;
+    width: 120px; /* Reduz um pouco o logo */
     height: auto;
     max-width: 100%;
 }
@@ -37,17 +39,20 @@ body {
 }
 
 label {
-
+    display: block; /* Garante que a label fique acima do input */
+    text-align: left; /* Alinha o texto da label à esquerda */
     font-size: 0.9rem;
     font-weight: 500;
     color: #404040;
-    margin-top: 10px;
+    margin-top: 15px;
+    margin-left: 5%; /* Alinha com a margem do input */
 }
 
 input {
     width: 90%;
     padding: 12px;
     border: none;
+    margin-top: 5px; /* Reduz a margem superior */
     margin-bottom: 12px;
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.664);
@@ -70,13 +75,40 @@ input:focus {
   text-decoration: none;      
   border-radius: 8px;          
   font-size: 16px;
-  width: 19rem ;
+  width: 97%; /* Ajustado para 90% para alinhar com os inputs */
+  margin-top: 20px;
   font-weight: bold;
   text-align: center;
   cursor: pointer;            
   transition: background 0.3s;
+  border: none;
 }
 
 .btn:hover {
   background-color: #93979b;   
+}
+
+.btn:disabled {
+    background-color: #93979b;
+    cursor: not-allowed;
+}
+
+/* --- ESTILOS ADICIONADOS PARA FEEDBACK E LINK --- */
+.message-feedback {
+    margin-top: 15px;
+    font-weight: bold;
+    font-size: 14px;
+    text-align: center;
+}
+.message-feedback.success { color: #0f5132; }
+.message-feedback.error { color: #a12323; }
+
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.login-link a {
+    color: rgb(4, 5, 0);
+    text-decoration: underline;
 }

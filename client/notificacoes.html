@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minhas Notificações - Barbearia</title>
+    <!-- Font Awesome, Base, Menu e CSS da página -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/notificacao.css">
+</head>
+<body>
+    <main class="container">
+        <h1>Centro de Notificações</h1>
+    
+        <div id="notifications-container">
+            <p>Carregando notificações...</p>
+        </div>
+    
+        <div class="pagination">
+            <button id="prev-page-btn" disabled>
+                <i class="fas fa-arrow-left"></i>
+            </button>
+            <span id="page-info"></span>
+            <button id="next-page-btn" disabled>
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </main>
+
+    <!-- Menu Fixo Padrão -->
+    <nav class="menu">
+        <a href="home.html" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="agendamento.html" data-tooltip="Agendamento"><i class="fa-solid fa-calendar-plus"></i><span>Agendar</span></a>
+        <a href="perfil.html" data-tooltip="Perfil"><i class="fa-solid fa-user"></i><span>Perfil</span></a>
+        <a href="notificacoes.html" class="active" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+    
+    <script type="module" src="js/notificacoes.js"></script>
+    <script type="module" src="../assets/js/main.js"></script> 
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Serviços - Painel do Admin</title>
+    <!-- Links CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/gerenciar-servicos.css">
+</head>
+
+<body>
+    <!-- Menu Padrão -->
+    <nav class="menu">
+        <a href="index.html" data-tooltip="Dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a>
+        <a href="gerenciar-agendamentos.html" data-tooltip="Agendamentos"><i class="fa-solid fa-calendar-days"></i><span>Agendamentos</span></a>
+        <a href="gerenciar-servicos.html" class="active" data-tooltip="Serviços"><i class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="gerenciar-usuarios.html" data-tooltip="Usuários"><i class="fa-solid fa-users"></i><span>Usuários</span></a>
+        <a href="gerenciar-disponibilidade.html" data-tooltip="Disponibilidade"><i class="fa-solid fa-clock"></i><span>Disponibilidade</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+
+    <main class="main-content">
+        <h1>Gerenciar Serviços</h1>
+        
+        <section class="section">
+            <h2>Lista de Serviços</h2>
+            <div id="services-list" class="services-list">Carregando serviços...</div>
+        </section>
+
+        <section class="section">
+            <h2 id="form-title">Adicionar Novo Serviço</h2>
+            <form id="service-form" class="service-form">
+                <input type="hidden" id="service-id">
+                
+                <label for="nome">Nome do Serviço</label>
+                <input type="text" id="nome" required>
+                
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao" required></textarea>
+                
+                <label for="precoBase">Preço Base (R$)</label>
+                <input type="number" id="precoBase" step="0.01" required>
+                
+                <label for="duracao">Duração (Minutos)</label>
+                <input type="number" id="duracao" required>
+                
+                <label for="imagem">Imagem do Serviço</label>
+                <input type="file" id="imagem" name="imagem" accept="image/*">
+                
+                <div>
+                    <button type="submit">Salvar Serviço</button>
+                    <button type="button" id="cancel-edit-btn" style="display:none;">Cancelar Edição</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <script type="module" src="js/gerenciarServicos.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+</html>

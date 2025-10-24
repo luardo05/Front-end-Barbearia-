@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Agendamentos - Painel do Admin</title>
+    <!-- Links CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <link rel="stylesheet" href="assets/css/gerenciar-agendamentos.css">
+</head>
+
+<body>
+    <!-- Menu Padrão -->
+    <nav class="menu">
+        <a href="index.html" data-tooltip="Dashboard"><i class="fa-solid fa-chart-pie"></i><span>Dashboard</span></a>
+        <a href="gerenciar-agendamentos.html" class="active" data-tooltip="Agendamentos"><i
+                class="fa-solid fa-calendar-days"></i><span>Agendamentos</span></a>
+        <a href="gerenciar-servicos.html" data-tooltip="Serviços"><i
+                class="fa-solid fa-scissors"></i><span>Serviços</span></a>
+        <a href="gerenciar-usuarios.html" data-tooltip="Usuários"><i
+                class="fa-solid fa-users"></i><span>Usuários</span></a>
+        <a href="gerenciar-disponibilidade.html" data-tooltip="Disponibilidade"><i
+                class="fa-solid fa-clock"></i><span>Disponibilidade</span></a>
+        <a href="notificacoes.html" data-tooltip="Notificações"><i
+                class="fa-solid fa-bell"></i><span>Notificações</span></a>
+    </nav>
+
+    <main class="main-content">
+        <h1>Gerenciar Agendamentos</h1>
+
+        <section class="section">
+            <h2>Todos os Agendamentos</h2>
+            <div id="appointments-list" class="appointments-list">Carregando...</div>
+            <div id="pagination-controls" class="pagination">
+                <button id="prev-page-btn" disabled>Anterior</button>
+                <span id="page-info"></span>
+                <button id="next-page-btn" disabled>Próximo</button>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Agendar para um Cliente</h2>
+            <form id="admin-appointment-form" class="appointment-form">
+                <label for="client-select">Cliente:</label>
+                <select id="client-select" required></select>
+
+                <label for="service-select">Serviço:</label>
+                <select id="service-select" required></select>
+
+                <label for="date-input">Data e Hora:</label>
+                <input type="datetime-local" id="date-input" required>
+
+                <button type="submit">Criar Agendamento</button>
+            </form>
+            <div id="form-message"></div>
+        </section>
+    </main>
+
+    <script type="module" src="js/gerenciarAgendamentos.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

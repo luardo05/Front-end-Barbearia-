@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Painel do Admin</title>
+    <!-- Font Awesome para os ícones do menu -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/components/base.css">
+    <!-- CSS Componente do Menu (reutilizado) -->
+    <link rel="stylesheet" href="../assets/css/components/menu.css">
+    <!-- CSS específico do Dashboard -->
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+    <!-- O Menu (reutilizável em todas as spáginas do admin) -->
+    <nav class="menu">
+
+        <!-- Link para o Dashboard -->
+        <!-- Adicione a classe 'active' a este link na página 'index.html' -->
+        <a href="index.html" class="active" data-tooltip="Dashboard">
+            <i class="fa-solid fa-chart-pie"></i>
+            <span>Dashboard</span>
+        </a>
+
+        <!-- Link para Gerenciar Agendamentos -->
+        <!-- Adicione a classe 'active' a este link na página 'gerenciar-agendamentos.html' -->
+        <a href="gerenciar-agendamentos.html" data-tooltip="Agendamentos">
+            <i class="fa-solid fa-calendar-days"></i>
+            <span>Agendamentos</span>
+        </a>
+
+        <!-- Link para Gerenciar Serviços -->
+        <!-- Adicione a classe 'active' a este link na página 'gerenciar-servicos.html' -->
+        <a href="gerenciar-servicos.html" data-tooltip="Serviços">
+            <i class="fa-solid fa-scissors"></i>
+            <span>Serviços</span>
+        </a>
+
+        <!-- Link para Gerenciar Usuários -->
+        <!-- Adicione a classe 'active' a este link na página 'gerenciar-usuarios.html' -->
+        <a href="gerenciar-usuarios.html" data-tooltip="Usuários">
+            <i class="fa-solid fa-users"></i>
+            <span>Usuários</span>
+        </a>
+
+        <!-- Link para Gerenciar Disponibilidade -->
+        <!-- Adicione a classe 'active' a este link nas páginas 'gerenciar-disponibilidade.html' e 'editar-dia.html' -->
+        <a href="gerenciar-disponibilidade.html" data-tooltip="Disponibilidade">
+            <i class="fa-solid fa-clock"></i>
+            <span>Disponibilidade</span>
+        </a>
+
+        <!-- Link para Notificações -->
+        <!-- Adicione a classe 'active' a este link na página 'notificacoes.html' -->
+        <a href="notificacoes.html" data-tooltip="Notificações">
+            <i class="fa-solid fa-bell"></i>
+            <span>Notificações</span>
+        </a>
+
+    </nav>
+
+    <main class="main-content">
+        <h1>Dashboard</h1>
+
+        <div style="margin-bottom: 20px; text-align: right;">
+            <a href="form-add-transacao.html" class="btn-action">
+                <i class="fa-solid fa-plus"></i> Registrar Venda Presencial
+            </a>
+        </div>
+
+        <section class="filters-container">
+            <label for="start-date">De:</label>
+            <input type="date" id="start-date">
+            <label for="end-date">Até:</label>
+            <input type="date" id="end-date">
+            <button id="filter-btn">Filtrar</button>
+            <button id="reset-filter-btn">Limpar Filtro</button>
+        </section>
+
+        <section id="dashboard-summary" class="summary-grid">
+            <!-- Os cards de resumo serão inseridos aqui pelo JS -->
+        </section>
+
+        <section class="charts-grid">
+            <div class="chart-container">
+                <h3>Faturamento por Dia (R$)</h3>
+                <!-- --- NOVA DIV ADICIONADA --- -->
+                <div class="chart-wrapper">
+                    <canvas id="revenueChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-container">
+                <h3>Novos Agendamentos por Dia</h3>
+                <!-- --- NOVA DIV ADICIONADA --- -->
+                <div class="chart-wrapper">
+                    <canvas id="appointmentsChart"></canvas>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="js/dashboard.js"></script>
+    <script type="module" src="../assets/js/main.js"></script>
+</body>
+
+</html>

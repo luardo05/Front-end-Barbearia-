@@ -1,0 +1,98 @@
+/* File: frontend/admin/assets/css/editar-dia.css */
+
+/* --- LAYOUT GERAL --- */
+.main-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-section {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.form-section h1, .form-section h2 {
+    text-align: center;
+    margin-top: 0;
+}
+
+.form-section h2 {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.form-section p {
+    text-align: center;
+    color: #777;
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+/* --- CONTAINER DOS INTERVALOS DE HORÁRIO --- */
+#slots-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.slot-item {
+    display: flex;
+    flex-wrap: wrap; /* Permite quebrar a linha em telas pequenas */
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.slot-item label {
+    font-weight: bold;
+}
+
+.slot-item input[type="time"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1; /* Faz os inputs crescerem para ocupar espaço */
+}
+
+/* --- BOTÕES DE AÇÃO --- */
+.btn-add, .btn-save, .remove-slot-btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-add {
+    background-color: #007bff; /* Azul */
+    color: white;
+}
+.btn-add:hover { background-color: #0056b3; }
+
+.btn-save {
+    background-color: #28a745; /* Verde */
+    color: white;
+    width: 100%; /* Ocupa a largura toda */
+    margin-top: 10px;
+}
+.btn-save:hover { background-color: #218838; }
+
+.remove-slot-btn {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    margin-left: auto; /* Empurra o botão de remover para a direita */
+}
+.remove-slot-btn:hover { background-color: #c82333; }

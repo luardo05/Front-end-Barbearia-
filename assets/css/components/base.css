@@ -1,0 +1,93 @@
+/* File: frontend/assets/css/base.css */
+
+/*
+  1. Use um seletor universal (*) e seus pseudo-elementos para aplicar
+     o box-sizing a tudo.
+*/
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/*
+  2. Remova a margem padrão do body para evitar barras de rolagem inesperadas.
+*/
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  /* Garante que o body não "encolha" com o menu lateral em desktop */
+  min-width: 320px; 
+}
+
+/*
+  3. Garante que as imagens não estourem seus contêineres.
+*/
+img,
+canvas { /* Aplicando também ao canvas */
+  max-width: 100%;
+  display: block; /* Remove o espaço extra abaixo das imagens */
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin: 30px 0 20px 0;
+}
+
+.pagination #page-info {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #555;
+}
+
+.pagination button {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Estilo ao passar o mouse */
+.pagination button:hover:not(:disabled) {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+/* Estilo para botões desabilitados */
+.pagination button:disabled {
+    background-color: #e9ecef;
+    color: #adb5bd;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.main-content {
+    /* Padrão para desktop */
+    padding: 20px;
+    margin-left: 0;
+    transition: margin-left 0.3s;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 60px; /* Largura do menu lateral */
+    }
+}
+
+@media (max-width: 767px) {
+    .main-content {
+        margin-left: 0;
+        padding: 15px;
+        padding-bottom: 90px; /* Espaço para o menu inferior */
+    }
+}

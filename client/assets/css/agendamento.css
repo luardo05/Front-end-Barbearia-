@@ -1,0 +1,228 @@
+/* File: frontend/client/assets/css/agendamento.css */
+
+/* --- ESTILOS GERAIS --- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #fff;
+}
+
+.container {
+    padding: 20px 15px 80px 15px; /* Padding inferior para o menu */
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* --- SEÇÃO DE RESUMO DO AGENDAMENTO --- */
+.agendamento-summary {
+    background-color: #f9f9f9;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.agendamento-summary label {
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.agendamento-summary select {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.selection-details {
+    margin-top: 20px;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+}
+
+.selection-details p {
+    margin: 5px 0;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn {
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
+    transition: background-color 0.3s, opacity 0.3s;
+}
+
+.btn-primary {
+    background: #f5b700;
+    color: #333;
+}
+
+.btn-primary:hover {
+    background: #e0a800;
+}
+
+.btn-confirm {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* --- MODAL --- */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 450px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+#close-modal-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #888;
+}
+
+/* CALENDÁRIO (Dentro do Modal) */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.calendar-days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.day {
+    padding: 10px 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.day-header {
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.day.disponivel:hover {
+    background-color: #e0a800;
+    color: white;
+}
+
+.day.indisponivel {
+    color: #ccc;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+/* HORÁRIOS (Dentro do Modal) */
+.horarios {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.horarios p {
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    margin: 10px 0 5px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 5px;
+}
+
+.horarios button {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.horarios button:hover {
+    background-color: #f0f0f0;
+}
+
+.horarios button.selected {
+    background-color: #333;
+    color: #F8C12A;
+    border-color: #333;
+}
+
+#back-to-calendar-btn {
+    margin-top: 20px;
+    background: none;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+.main-content {
+    margin-left: 0;
+    padding: 20px;
+    transition: margin-left 0.3s ease;
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 60px; 
+        padding-bottom: 20px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .main-content {
+        margin-left: 60px;
+        padding: 15px;
+    }
+}
