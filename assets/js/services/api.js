@@ -35,7 +35,7 @@ const apiFetch = async (endpoint, method = 'GET', body = null) => {
             if (response.status === 401) {
                 localStorage.removeItem('jwt_token');
                 alert('Sessão expirada. Por favor, faça login novamente.');
-                window.location.href = '../../../login.html';
+                window.location.href = '../../../index.html';
             }
             throw new Error(data.message || 'Ocorreu um erro na API');
         }

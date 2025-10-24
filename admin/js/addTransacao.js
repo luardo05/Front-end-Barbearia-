@@ -9,7 +9,7 @@ const saveBtn = document.getElementById('save-btn');
 // --- Auth Guard ---
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             window.location.href = '/client/home.html';
         }
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

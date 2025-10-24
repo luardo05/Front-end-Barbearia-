@@ -4,7 +4,7 @@ import { getMyProfile, getAllUsers, adminCreateUser, deleteUser } from '../../as
 // Auth Guard
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadUsers();
         }
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

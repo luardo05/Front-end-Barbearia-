@@ -30,7 +30,7 @@ registerForm.addEventListener('submit', async (event) => {
         
         // Redireciona para o login após um curto período
         setTimeout(() => {
-            window.location.href = '/login.html';
+            window.location.href = '/index.html';
         }, 2500);
 
     } catch (error) {

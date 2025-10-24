@@ -14,14 +14,14 @@ let totalPages = 1;
 // --- Auth Guard e Carregamento Inicial ---
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
         await getMyProfile();
         loadNotifications(); // Carrega a primeira página
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

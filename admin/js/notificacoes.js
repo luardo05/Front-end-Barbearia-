@@ -12,7 +12,7 @@ let totalPages = 1;
 // --- Auth Guard e Carregamento Inicial (sem alterações) ---
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadNotifications(1);
         }
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

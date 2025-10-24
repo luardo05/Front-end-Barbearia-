@@ -4,7 +4,7 @@ import { getMyProfile, getAllServices } from '../../assets/js/services/api.js';
 // --- Auth Guard e Carregamento Inicial ---
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {

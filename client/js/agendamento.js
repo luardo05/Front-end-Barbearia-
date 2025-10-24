@@ -11,14 +11,14 @@ import {
 // --- Auth Guard ---
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
         await getMyProfile();
         populateServices();
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

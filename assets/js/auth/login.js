@@ -39,7 +39,7 @@ loginForm.addEventListener('submit', async (event) => {
         // 4. Redireciona com base no role
         setTimeout(() => {
             if (userRole === 'admin') {
-                window.location.href = '/admin/index.html';
+                window.location.href = '/admin/home.html';
             } else {
                 // Para o cliente, vamos para a home dele, que deve ser a de serviços
                 window.location.href = '/client/home.html'; 

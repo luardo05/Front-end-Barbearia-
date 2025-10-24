@@ -19,7 +19,7 @@ const formatDate = (isoString) => isoString ? new Date(isoString).toLocaleString
 // Auth Guard: Verifica se há token e se o usuário é admin
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadDashboardData();
         }
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
 });
 

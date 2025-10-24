@@ -4,7 +4,7 @@ import { getMyProfile, getAvailabilityForDate, setAvailability } from '../../ass
 // --- Auth Guard (essencial para proteger a página) ---
 document.addEventListener('DOMContentLoaded', async () => {
     if (!localStorage.getItem('jwt_token')) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
         return;
     }
     try {
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             loadDayData();
         }
     } catch (error) {
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     }
     loadDayData();
 });

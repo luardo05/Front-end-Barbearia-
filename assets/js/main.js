@@ -50,6 +50,6 @@ if (logoutButton) {
     logoutButton.addEventListener('click', () => {
         localStorage.removeItem('jwt_token');
         if(socket) socket.disconnect();
-        window.location.href = '/login.html';
+        window.location.href = '/index.html';
     });
 }
