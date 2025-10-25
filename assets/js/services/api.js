@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3000/api/v1';
+const BASE_URL = 'https://back-end-barbearia-lu8s.onrender.com/api/v1';
 
 const getToken = () => localStorage.getItem('jwt_token');
 

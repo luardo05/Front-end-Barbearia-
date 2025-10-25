@@ -4,7 +4,7 @@ const token = localStorage.getItem('jwt_token');
 let socket;
 
 if (token) {
-    socket = io("http://localhost:3000", { // URL do seu backend
+    socket = io("https://back-end-barbearia-lu8s.onrender.com", { // URL do seu backend
       auth: {
         token: token
       }
