@@ -71,17 +71,23 @@ function updateSummary() {
 }
 
 async function renderCalendar(date) {
-    calendarDays.innerHTML = '<p>Carregando...</p>';
+    calendarDays.innerHTML = '<p>Carregando calendário...</p>';
     const year = date.getFullYear();
     const month = date.getMonth();
 
-    calendarNav.title.textContent = `${date.toLocaleString('pt-BR', { month: 'long' })} de ${year}`;
+    calendarNav.title.textContent = `${date.toLocaleString('pt-br', { month: 'long' })} de ${year}`;
+
+    // Pega a data de hoje e zera as horas para comparar apenas os dias.
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
 
     try {
+        // Busca a disponibilidade do mês na API (incluindo as regras do admin).
         const response = await getAvailabilityForMonth(year, month + 1);
         const monthAvailability = response.data.availabilities;
         const availabilityMap = new Map(monthAvailability.map(dayInfo => [
-            new Date(dayInfo.date).toISOString().split('T')[0], dayInfo.status
+            new Date(dayInfo.date).toISOString().split('T')[0], 
+            dayInfo.status
         ]));
 
         calendarDays.innerHTML = '';
@@ -95,25 +101,45 @@ async function renderCalendar(date) {
         const firstDayOfMonth = new Date(year, month, 1).getDay();
         const daysInMonth = new Date(year, month + 1, 0).getDate();
 
+        // Adiciona células vazias para os dias antes do início do mês.
         for (let i = 0; i < firstDayOfMonth; i++) {
             const emptyCell = document.createElement('div');
             emptyCell.classList.add('day');
             calendarDays.appendChild(emptyCell);
         }
 
+        // Cria uma célula para cada dia do mês.
         for (let day = 1; day <= daysInMonth; day++) {
             const dayCell = document.createElement('div');
             dayCell.classList.add('day');
+            
             const dayDate = new Date(Date.UTC(year, month, day));
             const dateString = dayDate.toISOString().split('T')[0];
             dayCell.dataset.date = dateString;
-            const status = availabilityMap.get(dateString) || 'indisponivel';
             dayCell.textContent = day;
-            dayCell.classList.add(status);
+
+            // --- LÓGICA DE VALIDAÇÃO APLICADA AQUI ---
+
+            // 1. VERIFICAÇÃO PRIORITÁRIA: O dia já passou?
+            if (dayDate < today) {
+                dayCell.classList.add('indisponivel');
+                // Opcional: Adicionar uma classe específica para dias passados
+                // dayCell.classList.add('past-day');
+            } else {
+                // 2. Se não passou, verifica a disponibilidade vinda da API (regras do admin).
+                const statusFromAPI = availabilityMap.get(dateString);
+                
+                // Se a API não retornou status, usa o padrão (indisponível para domingo).
+                const finalStatus = statusFromAPI || (dayDate.getUTCDay() === 0 ? 'indisponivel' : 'disponivel');
+                
+                dayCell.classList.add(finalStatus);
+            }
+            
             calendarDays.appendChild(dayCell);
         }
+
     } catch (error) {
-        calendarDays.innerHTML = `<p style="color: red;">Erro ao carregar calendário.</p>`;
+        calendarDays.innerHTML = `<p style="color: red;">Erro ao carregar calendário: ${error.message}</p>`;
     }
 }
 
